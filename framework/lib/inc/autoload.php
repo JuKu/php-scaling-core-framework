@@ -27,6 +27,9 @@ class PFS_Autoloader {
     public static function loadClass ($class_name) {
         $loaded = false;
 
+        //convert to lower case
+        $class_name = strtolower($class_name);
+
         //convert to array for namespaces
         $array1 = explode("_", $class_name);
 
@@ -34,14 +37,18 @@ class PFS_Autoloader {
             //check, if file exists
             if (file_exists(LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php")) {
                 //include class
-                require(LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php");
-
-                //add class to array
-                self::$loaded_classes[] = LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php";
+                require_once(LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php");
 
                 //set loaded flag to true, class was loaded
                 $loaded = true;
             }
+        }
+
+        if ($loaded) {
+            //add class to array
+            self::$loaded_classes[] = LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php";
+        } else {
+            self::$error_logs[] = $class_name;
         }
 
         return $loaded;

@@ -28,3 +28,8 @@ Still work in progress!
 ## How To use
 Download / copy all this files. All files in directory "lib" are required.
 Your scripts have to include lib/init.php, an autoloader will be added automatically.
+
+## File permissions
+  - chmod 755 /framework/cache
+  - chmod 755 /framework/lib/store
+  - chmod 755 /framework/store
