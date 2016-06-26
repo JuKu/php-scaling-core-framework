@@ -1,4 +1,4 @@
-# php-scaling-core-frmework
+# php-scaling-core-framework
 an small php framework for creating better scalable Web applications in php.
 
 As an developer from contentlion.org (currently Contentlion is an little bit outdated), i wanted to create an little small framework which can be used for many scalable php systems, for example CMS and so on.
