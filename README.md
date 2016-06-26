@@ -1,6 +1,8 @@
 # php-scaling-core-framework
 an small php framework for creating better scalable Web applications in php.
 
+*Current Version: 0.0.1* (Pre-Alpha)
+
 As an developer from contentlion.org (currently Contentlion is an little bit outdated), i wanted to create an little small framework which can be used for many scalable php systems, for example CMS and so on.
 
 Planned Features:
@@ -11,6 +13,14 @@ Planned Features:
     - Other caches can be added also
   - small Database Management (Connection, Instances and Updates)
   - Distributed session management (for scaling out)
+  - and so on
+
+Goals:
+  - very flexible
+  - very fast / high performance
+  - easy extensible (with plugins and so on)
+  - easy to use
+  - SEO (for higher levels)
   - and so on
 
 Still work in progress!
