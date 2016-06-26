@@ -12,7 +12,10 @@ $psf_settings = array(
         'name' => "File Caching",
         'class_path' => LIB_PSF_ROOT . "inc/classes/filecache.php"
     ),
-    'gzip' => true
+    'gzip' => true,
+
+    //if debug mode is on, every thing will be printed to website as html comment
+    'debug' => false
 );
 
 ?>
