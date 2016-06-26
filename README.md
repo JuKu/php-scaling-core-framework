@@ -29,6 +29,10 @@ Still work in progress!
 Download / copy all this files. All files in directory "lib" are required.
 Your scripts have to include lib/init.php, an autoloader will be added automatically.
 
+## Requirements
+  - PHP 7.0.7+ (it can also still work under PHP 5.4, but i cannot guarantee for this)
+  - MySQL 5.7+
+
 ## File permissions
   - chmod 755 /framework/cache
   - chmod 755 /framework/lib/store
