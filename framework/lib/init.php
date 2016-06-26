@@ -47,4 +47,7 @@ if ($psf_settings['gzip'] == true) {
     ob_start();
 }
 
+//include xtpl
+require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
+
 ?>
