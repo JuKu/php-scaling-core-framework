@@ -13,6 +13,8 @@ Planned Features:
     - Other caches can be added also
   - small Database Management (Connection, Instances and Updates)
   - Distributed session management (for scaling out)
+  - Event / Hook System
+  - Multi Language System
   - and so on
 
 Goals:
