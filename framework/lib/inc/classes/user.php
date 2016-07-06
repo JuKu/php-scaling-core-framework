@@ -22,10 +22,18 @@ class User {
 
     protected $username = "Guest";
 
+    public function __construct() {
+        //
+    }
+
+    /**
+     * initialize user and load user data from session
+     */
     public final function init () {
         //check, if user is logged in
         if ($this->isLoggedIn()) {
-            //
+            //load data from session
+            $this->loadDataFromSession();
         }
 
         //call onInit() function to make initialization extensible
@@ -59,7 +67,17 @@ class User {
      * logout user
      */
     public function logout () {
-        //
+        //reset session
+        $_SESSION['userID'] = 0;
+        $_SESSION['isLoggedIn'] = false;
+    }
+
+    protected function loadDataFromSession () {
+        //check, if session is complete
+        if (!isset($_SESSION['userID']) || !isset($_SESSION['username'])) {
+            //throw exception, maybe its also an hacker (?)
+            throw new Exception("session data isnt complete.");
+        }
     }
 
     public function onLogout () {
@@ -86,6 +104,14 @@ class User {
 
         //return instance
         return self::$instance;
+    }
+    
+    public static function setCurrent (User $user) {
+        if ($user == null) {
+            throw new NullPointerException("user instance is null.");
+        }
+
+        self::$instance = $user;
     }
 
 }
