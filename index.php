@@ -17,7 +17,7 @@ define('ROOT_PATH', dirname(__FILE__) . "/");
 require(ROOT_PATH . "lib/inc/init.php");
 
 //check secure php options
-Security::checkPHPOptions();
+Security::check();
 
 //...
 
