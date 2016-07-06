@@ -37,10 +37,10 @@ class User {
         }
 
         //call onInit() function to make initialization extensible
-        $this->onInit();
+        $this->onInit($this->isLoggedIn());
     }
 
-    protected function onInit () {
+    protected function onInit ($loggedIn) {
         //
     }
 
@@ -90,6 +90,10 @@ class User {
 
     public function getName () {
         return $this->username;
+    }
+
+    public function setOnline () {
+        //
     }
 
     public static function getCurrent () {
