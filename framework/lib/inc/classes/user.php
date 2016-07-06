@@ -93,7 +93,11 @@ class User {
     }
 
     public function setOnline () {
-        //
+        if ($this->isLoggedIn()) {
+            //set user as logged in
+        } else {
+            //use trackerID to set guest as online
+        }
     }
 
     public static function getCurrent () {
