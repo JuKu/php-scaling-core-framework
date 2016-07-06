@@ -19,6 +19,8 @@ require(ROOT_PATH . "lib/inc/init.php");
 //check secure php options
 Security::check();
 
+//your application code here
+
 //...
 
 $end_time = microtime(true);
