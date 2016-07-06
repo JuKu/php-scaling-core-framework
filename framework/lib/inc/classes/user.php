@@ -32,6 +32,9 @@ class User {
     public final function init () {
         //check, if user is logged in
         if ($this->isLoggedIn()) {
+            //check, for logout request
+            $this->checkForLogout();
+
             //load data from session
             $this->loadDataFromSession();
         }

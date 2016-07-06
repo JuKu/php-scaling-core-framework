@@ -9,11 +9,15 @@ $start_time = microtime(true);
 //start session
 session_start();
 
+//enable gzip compression
 ob_start();
 
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
 require(ROOT_PATH . "lib/inc/init.php");
+
+//check secure php options
+Security::checkPHPOptions();
 
 //...
 
