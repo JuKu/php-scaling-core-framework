@@ -14,6 +14,8 @@ Planned Features:
   - small Database Management (Connection, Instances and Updates)
   - Distributed session management (for scaling out)
   - Event / Hook System
+  - Mobile Detection
+  - Multi Domain Support
   - Multi Language System
   - and so on
 
