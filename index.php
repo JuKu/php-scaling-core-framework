@@ -6,6 +6,9 @@
 
 $start_time = microtime(true);
 
+//start session
+session_start();
+
 ob_start();
 
 define('ROOT_PATH', dirname(__FILE__) . "/");
