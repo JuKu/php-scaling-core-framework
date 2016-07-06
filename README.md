@@ -16,6 +16,7 @@ Planned Features:
   - Event / Hook System
   - Mobile Detection
   - Multi Domain Support
+  - User Counter / Statistics
   - Multi Language System
   - and so on
 
@@ -24,6 +25,7 @@ Goals:
   - very fast / high performance
   - easy extensible (with plugins and so on)
   - easy to use
+  - help to build secure applications as possible (against SQL Injections, SSRF, CSRF attacks and so on)
   - SEO (for higher levels)
   - and so on
 
