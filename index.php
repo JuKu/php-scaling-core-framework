@@ -19,6 +19,9 @@ require(ROOT_PATH . "lib/inc/init.php");
 //check secure php options
 Security::check();
 
+//initialize host and load lokal configuration
+Host::init();
+
 //your application code here
 
 //...

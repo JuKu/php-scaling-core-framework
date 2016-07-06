@@ -8,6 +8,10 @@
  */
 class Host {
 
+    public static function init () {
+        //
+    }
+
     public static function getUUIDPrefix () {
         //TODO: implement this function
 
