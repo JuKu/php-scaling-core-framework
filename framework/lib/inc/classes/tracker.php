@@ -33,7 +33,7 @@ class Tracker {
     public static function generateNewTrackerID () {
         //$random = substr(base64_encode(sha1(mt_rand())), 0, 10);
 
-        //
+        //generate new unique ID for tracking
         $random = uniqid(Host::getUUIDPrefix(), true);
 
         //create new md5 hash
