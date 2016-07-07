@@ -8,4 +8,6 @@
  */
 interface DBDriver {
 
+    public function connect ($config_path);
+
 }

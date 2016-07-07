@@ -8,7 +8,7 @@ $start_time = microtime(true);
 
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
-require(ROOT_PATH . "lib/inc/init.php");
+require(ROOT_PATH . "framework/lib/inc/init.php");
 
 //check secure php options
 Security::check();

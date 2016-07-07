@@ -14,7 +14,8 @@ class Logger {
         echo "An Error oncurred! Please contact " . Host::getAdminMail() . " !";
 
         if (Host::isDebugEnabled()) {
-            echo $text;
+            echo $text . "<br /><br />";
+            throw new Exception($text);
         }
 
         //exit application
