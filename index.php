@@ -6,15 +6,6 @@
 
 $start_time = microtime(true);
 
-//start session
-session_start();
-
-//enable gzip compression
-ob_start();
-
-//TODO: remove this line
-error_reporting(E_ALL);
-
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
 require(ROOT_PATH . "lib/inc/init.php");

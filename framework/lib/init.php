@@ -20,6 +20,12 @@ if (!defined('LIB_PSF_CONFIG')) {
     define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "../config/");
 }
 
+//start session
+session_start();
+
+//TODO: remove this line
+error_reporting(E_ALL);
+
 //include autoloader and basic framework files and classes
 require(LIB_PSF_ROOT . "lib.php");
 require(LIB_PSF_ROOT . "inc/autoload.php");
@@ -45,6 +51,8 @@ if (!isset($psf_settings['gzip'])) {
 if ($psf_settings['gzip'] == true) {
     //activate gzip compression
     ob_start();
+
+    echo "<!-- gzip enabled -->";
 }
 
 //include xtpl
