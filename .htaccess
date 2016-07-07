@@ -19,3 +19,5 @@ RewriteRule .* /index.html [R=301,L]
 RewriteCond %{REQUEST_URI} ^\/robots\.txt$
 RewriteRule .* /robots.php [L]
 
+#dont allow directory listening
+Options All -Indexes
