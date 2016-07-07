@@ -20,6 +20,12 @@ if (!defined('LIB_PSF_CONFIG')) {
     define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "../config/");
 }
 
+//set config directory
+if (!defined('LIB_PSF_STORE')) {
+    //define cache path
+    define('LIB_PSF_STORE', LIB_PSF_ROOT . "store/");
+}
+
 //start session
 session_start();
 
