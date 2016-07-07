@@ -20,4 +20,12 @@ class Host {
         return "";
     }
 
+    public static function isDebugEnabled () {
+        return true;
+    }
+
+    public static function getAdminMail () {
+        return "mail@example.com";
+    }
+
 }
