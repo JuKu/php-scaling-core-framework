@@ -21,3 +21,15 @@ RewriteRule .* /robots.php [L]
 
 #dont allow directory listening
 Options All -Indexes
+
+# Error 401 - Authorization required
+ErrorDocument 401 /error/error401.html
+
+# Error 404 - Not Found
+ErrorDocument 404 /error/error404.html
+
+# Error 400 - Bad Request
+ErrorDocument 400 /error/error400.html
+
+# Error 403 - Forbidden
+ErrorDocument 403 /error/error403.html
