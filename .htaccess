@@ -1,0 +1,21 @@
+#
+# Do only edit this file, if you know, what you do!
+#
+# Else your server can throw an "Error 500 - Internal Server Error"
+#
+
+# use URL Rewriting for better SEO optimization
+RewriteEngine On
+Options +FollowSymlinks
+RewriteBase /
+RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
+
+# redirect index.php to index.html
+RewriteCond %{REQUEST_URI} ^\/index\.php$
+RewriteRule .* /index.html [R=301,L]
+#RewriteRule .* http://example.com/index.html [R=301,L]
+
+# redirect robots.txt
+RewriteCond %{REQUEST_URI} ^\/robots\.txt$
+RewriteRule .* /robots.php [L]
+
