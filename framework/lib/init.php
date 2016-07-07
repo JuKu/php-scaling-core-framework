@@ -17,7 +17,7 @@ if (!defined('LIB_PSF_CACHE')) {
 //set config directory
 if (!defined('LIB_PSF_CONFIG')) {
     //define cache path
-    define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "../config/");
+    define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "config/");
 }
 
 //set config directory
