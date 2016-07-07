@@ -17,6 +17,7 @@ Planned Features:
   - Mobile Detection
   - Multi Domain Support
   - User Counter / Statistics
+  - Intelligent HTTP Caching
   - Multi Language System
   - and so on
 
