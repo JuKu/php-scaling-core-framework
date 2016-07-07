@@ -42,6 +42,20 @@ class PFS_Autoloader {
                 //set loaded flag to true, class was loaded
                 $loaded = true;
             }
+        } else if (sizeof($array1) == 2) {
+            //check, if its an driver class
+            if ($array1[0] == "driver") {
+                //check, if driver exists
+                if (file_exists(LIB_PSF_ROOT . "inc/driver/" . $array1[1] . ".php")) {
+                    //include class
+                    require_once(LIB_PSF_ROOT . "inc/driver/" . $array1[1] . ".php");
+
+                    //set loaded flag to true, class was loaded
+                    $loaded = true;
+                } else {
+                    //
+                }
+            }
         }
 
         if ($loaded) {
