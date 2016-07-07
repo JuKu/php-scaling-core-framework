@@ -136,6 +136,9 @@ fabric.properties
 ## File-based project format:
 *.iws
 
+.cfg.php
+*.cfg.php
+
 ## Plugin-specific files:
 
 # IntelliJ
