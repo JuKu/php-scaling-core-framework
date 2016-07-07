@@ -9,7 +9,8 @@
 class Host {
 
     public static function init () {
-        //
+        //load local settings
+        require("");
     }
 
     public static function getUUIDPrefix () {

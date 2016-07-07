@@ -4,6 +4,12 @@
  * MySQL Configuration file
  */
 
+//for security reasons, mysql.cfg.php can only included once
+if (defined('PSCF_MYSQL_SETTINGS_INCLUDED')) {
+    echo "mysql configuration already included. Abort now!";
+    exit;
+}
+
 $mysql_settings = array(
     /**
      * MySQL Host
@@ -58,5 +64,7 @@ $mysql_settings = array(
         'admin_access' => true
     )
 );
+
+define('PSCF_MYSQL_SETTINGS_INCLUDED', true);
 
 ?>

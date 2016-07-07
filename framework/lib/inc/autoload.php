@@ -53,7 +53,7 @@ class PFS_Autoloader {
                     //set loaded flag to true, class was loaded
                     $loaded = true;
                 } else {
-                    //
+                    throw new ClassLoaderException("Couldnt load database driver " + $class_name + ".");
                 }
             }
         }

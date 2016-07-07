@@ -6,6 +6,12 @@
  * this file was auto generated and will be overriden by application automatically.
  */
 
+//for security reasons, settings.php can only included once
+if (defined('PSCF_SETTINGS_INCLUDED')) {
+    echo "settings already included. Abort now!";
+    exit;
+}
+
 $psf_settings = array(
     'cache' => array(
         'type' => "FileCache",
@@ -17,5 +23,7 @@ $psf_settings = array(
     //if debug mode is on, every thing will be printed to website as html comment
     'debug' => false
 );
+
+define('PSCF_SETTINGS_INCLUDED', true);
 
 ?>
