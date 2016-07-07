@@ -21,4 +21,8 @@ class Cache {
         //
     }
 
+    public static function init () {
+        //
+    }
+
 }

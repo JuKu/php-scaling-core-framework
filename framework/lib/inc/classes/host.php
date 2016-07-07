@@ -9,8 +9,9 @@
 class Host {
 
     public static function init () {
+        //check
         //load local settings
-        require("");
+        require(LIB_PSF_CACHE . "settings.php");
     }
 
     public static function getUUIDPrefix () {
