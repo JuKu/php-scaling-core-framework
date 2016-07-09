@@ -71,6 +71,6 @@ class PFS_Autoloader {
 }
 
 //register autoloader
-spl_autoload_register("PSS_Autoloader::load_class");
+spl_autoload_register("PFS_Autoloader::load_class");
 
 ?>
