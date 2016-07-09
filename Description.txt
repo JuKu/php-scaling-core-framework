@@ -1,0 +1,44 @@
+Wieso noch ein CMS?
+
+Es gibt schon so viele Content Management Systeme, wie Strand am Meer, wieso also ein neues CMS?
+Hierfür gibt es mehrere Gründe:
+
+1. SEO / Suchmaschinenoptimierung
+Die meisten CMS Systene unterstützen SEO nicht von Haus, sondern dieses muss erst teilweiße umständlich per Plugin nachgerüstet werden. Bei dem ein oder anderem CMS (z.B. Wordpress)
+funktioniert dies mittlerweile ganz gut, bei anderen ist sich der Anwender bei der Fülle und unterschiedlicher Qualität der Plugins auch nicht mehr unbedingt sicher, was
+wohl jetzt das beste Plugin für sein System & Use Case ist. Dieses CMS System soll ihnen alle benötigten SEO - Werkzeuge gleich von Anfang an mitliefern - und so auch das meiste aus der Suchmaschinenoptimierung herausholen.
+
+Denn:
+Nur durch sehr gute Suchmaschinenoptimierung gelangen heutzutage wirklich viele User auf ihre Webseite.*
+
+2. Altlasten
+Viele der besten CMS Systeme sind schon relativ alt (z.B. Joomla, Wordpress), was sich leider auch immer wieder in der Plugin Entwicklung und vorallem der Performance
+(Geschwindigkeit) ihrer Webseite bemerkbar macht. Auch wenn man die Versionsnummern ständig erhöht, baut man z.B. Wordpress nicht komplett neu, sondern verbessert nur
+einzelne Teile des Systems. Der sog. "Core", also das Kern System des CMS schleppt also ständig irgendwelche Altlasten mit sich rum, die noch aus der 1. Version existieren.
+Diese sind weder auf die neuesten PHP Versionen optimiert, noch unbedingt auf dem heutigen Stand der Technik, welches sich auch schon wieder auf die Performance ihrer
+Webseite bemerkbar machen kann.
+
+3. Performance
+Die Zeit, die ihre Webseite zum Laden benötigt, gewinnt in der heutigen Zeit vorallem fürs SEO immer mehr an Bedeutung.
+Google misst mittlerweile diese Geschwindigkeit sogar und verwendet diese für den PageRank**, damit ihre Webseite entweder in den Suchergebnissen weiter unten oder
+im besten Fall ganz weit oben steht.
+
+4. Ease of Use vs. Flexibilität
+Es gibt meistens 2 Arten von CMS Systemen, die einen fokusieren sich auf die wichtigsten Features, um es dem Neueinsteiger möglichst einfach zu machen, während sich die anderen
+mehr auf die eher fortgeschrittenere Zielgruppe bezieht und viele 10.000 Möglichkeiten anbietet, die aber leider nicht so einfach zu bedienen sind.
+Bei den erst genannten CMS Systemen kommt noch hinzu, dass man mit diesen meist eher eingeschränkt in seinen Funktionen ist.
+Dieses CMS soll dem entgegenwirken und beide Zielgruppen vereinen - es soll sowohl Einsteigerfreundlich (und sogar z.B. SEO Tipps geben), als auch voll erweiterbar sein und so dem Anwender grenzenlose Möglichkeiten zur Verfügung stellen.***
+
+5. Sicherheit
+Da die meisten CMS Systeme (Wordpress, Joomla usw.) schon ziemlich alt sind, jedes Jahr aber immer neue Methoden für Hacker vorgestellt werden, sind alte CMS Systeme meist anfälliger für solche Schwachstellen.
+Dieses CMS soll vom Kern aus möglichst viel Sicherheit bieten, um ihnen den Umgang mit Hackern zu erleichtern. Natürlich gibt es KEIN System, welches gar keine Sicherheitslücken besitzt, aber wir wollen wenigstens dafür sorgen, dass die Anzahl der Sicherheitslücken auf einem Minimum bleibt.
+Hierfür wollen wir
+1. regelmäßige und schnelle Updates (Hotfixes) anbieten, wenn uns eine Sicherheitslücke bekannt wurde und
+2. schon von Anfang an bei der Entwicklung den Fokus auch auf Sicherheit legen.
+
+*ein guter Content (Inhalt) ihrer Seiten vorausgesetzt.
+
+**den richtigen "PageRank" gibt es schon seit Jahren nicht mehr, da Google nicht mehr Preis geben möchte, wann eine Webseite wie gerankt wird, also wann weiter oben in den Suchergebnissen steht.
+Dennoch wird Google (vermutlich) intern noch Rankings nutzen.
+
+***leider gibt es einige technische Limitierungen (eher Hardwaremäßig)
