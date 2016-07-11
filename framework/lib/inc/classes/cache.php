@@ -9,20 +9,26 @@
 
 class Cache {
 
-    public static function put ($area, $key, $value) {
-        //
-    }
+    /**
+     * first level cache for sessions and so on
+     */
+    protected $instance = null;
 
-    public static function get ($area, $key) {
-        //
-    }
-
-    public static function contains ($area, $key) {
-        //
-    }
+    /**
+     * second level cache for normal cache entries
+     */
+    protected $second_level_cache = null;
 
     public static function init () {
-        //
+        //TODO: read config and create cache instances
+    }
+
+    public function &getCache () {
+        return $this->instance;
+    }
+
+    public function &get2ndLvlCache () {
+        return $this->second_level_cache;
     }
 
 }

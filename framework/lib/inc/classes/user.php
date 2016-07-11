@@ -103,7 +103,7 @@ class User {
         }
     }
 
-    public static function getCurrent () {
+    public static function &getCurrent () {
         //check, if instance exists
         if (self::$instance == null) {
             //create new instance of user
