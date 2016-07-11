@@ -28,6 +28,7 @@ class Security {
     }
 
     public static function check () {
+        //check php options
         self::checkPHPOptions();
 
         //remove php version header
