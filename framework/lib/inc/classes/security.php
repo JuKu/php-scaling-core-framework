@@ -30,6 +30,9 @@ class Security {
     public static function check () {
         self::checkPHPOptions();
 
+        //remove php version header
+        header_remove("X-Powered-By");
+
         //check, if csrf token exists and if not generate an new csrf token
         self::initCSRFToken();
     }
