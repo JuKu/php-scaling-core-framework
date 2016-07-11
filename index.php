@@ -10,21 +10,6 @@ define('ROOT_PATH', dirname(__FILE__) . "/");
 
 require(ROOT_PATH . "framework/lib/inc/init.php");
 
-echo "security";
-
-//check secure php options
-Security::check();
-
-echo "cache";
-
-//initialize cache
-Cache::init();
-
-echo "host";
-
-//initialize host and load lokal configuration
-Host::init();
-
 //your application code here
 
 //...

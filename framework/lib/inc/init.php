@@ -61,7 +61,25 @@ if ($psf_settings['gzip'] == true) {
     echo "<!-- gzip enabled -->";
 }
 
+//initialize events
+Events::init();
+
 //include xtpl
 require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
+
+echo "security";
+
+//check secure php options
+Security::check();
+
+echo "cache";
+
+//initialize cache
+Cache::init();
+
+echo "host";
+
+//initialize host and load lokal configuration
+Host::init();
 
 ?>
