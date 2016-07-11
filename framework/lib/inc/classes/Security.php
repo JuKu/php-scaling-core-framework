@@ -8,6 +8,8 @@
  */
 class Security {
 
+    protected static $csrf_token = "";
+
     public static function checkPHPOptions () {
         if (get_magic_quotes_gpc()) {
             throw new SecurityException("magic quotes is on.");
@@ -27,6 +29,37 @@ class Security {
 
     public static function check () {
         self::checkPHPOptions();
+
+        //check, if csrf token exists and if not generate an new csrf token
+        self::initCSRFToken();
+    }
+
+    protected static function initCSRFToken () {
+        if (!isset($_SESSION['csrf_token'])) {
+            self::$csrf_token = hash_hmac(
+                'sha512',
+                openssl_random_pseudo_bytes(32),
+                openssl_random_pseudo_bytes(16)
+            );
+
+            $_SESSION['csrf_token'] = self::$csrf_token;
+        } else {
+            //get CSRF token from string
+            self::$csrf_token = $_SESSION['csrf_token'];
+        }
+    }
+
+    public static function getCSRFToken () {
+        //return CSRF token
+        return self::$csrf_token;
+    }
+
+    public static function getCSRFTokenField () {
+        return "<input type=\"hidden\" name=<\"csrf_token\" value=\"" . self::$csrf_token . "\" />";
+    }
+
+    public static function checkCSRFToken ($value) {
+        return self::$csrf_token == $value;
     }
 
 }
