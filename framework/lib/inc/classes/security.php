@@ -34,6 +34,9 @@ class Security {
         //remove php version header
         header_remove("X-Powered-By");
 
+        //remove server os header
+        header_remove("Server");
+
         //check, if csrf token exists and if not generate an new csrf token
         self::initCSRFToken();
     }
