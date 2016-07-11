@@ -8,10 +8,14 @@
  */
 class Host {
 
+    protected static $psf_settings = null;
+
     public static function init () {
         //check
         //load local settings
         require(LIB_PSF_CACHE . "settings.php");
+
+        self::$psf_settings = $psf_settings;
     }
 
     public static function getUUIDPrefix () {
