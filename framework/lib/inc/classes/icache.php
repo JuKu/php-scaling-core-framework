@@ -2,6 +2,8 @@
 
 interface ICache {
 
+    public function init ($config);
+
     public function put ($area, $key, $value);
 
     public function get ($area, $key);
