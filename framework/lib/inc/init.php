@@ -51,6 +51,9 @@ AutoLoaderCache::load();
 //initialize events
 Events::init();
 
+//throw init event
+Events::throwEvent("init");
+
 //include xtpl
 require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
 

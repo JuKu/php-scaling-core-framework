@@ -12,4 +12,8 @@ class Events {
         //
     }
 
+    public static function throwEvent ($name, $params = array()) {
+        //
+    }
+
 }
