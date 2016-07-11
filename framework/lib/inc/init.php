@@ -42,6 +42,12 @@ if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
     exit;
 }
 
+//initialize autoloader cache
+AutoLoaderCache::init();
+
+//load required classes from cache
+AutoLoaderCache::load();
+
 //initialize events
 Events::init();
 
