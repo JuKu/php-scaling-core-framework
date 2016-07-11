@@ -27,7 +27,7 @@ class Host {
             //activate gzip compression
             ob_start();
 
-            echo "<!-- gzip enabled -->";
+            //echo "<!-- gzip enabled -->";
         }
     }
 
