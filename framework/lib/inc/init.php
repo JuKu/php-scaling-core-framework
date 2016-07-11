@@ -39,6 +39,7 @@ require(LIB_PSF_ROOT . "autoload.php");
 //check php version
 if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
     echo "[PFS init.php] Error! <b>PHP version " . PHP_VERSION . " isnt supported</b>, PHP 7.0.7+ is required.<br />Current PHP version: " . PHP_VERSION + ".";
+    ob_flush();
     exit;
 }
 
@@ -46,11 +47,13 @@ require(LIB_PSF_CACHE . "settings.php");
 
 if (!isset($psf_settings) || !isset($psf_settings['cache'])) {
     echo "[PFS init.php] Cache section isnt configured in cache settings.php (cache directory / settings.php).";
+    ob_flush();
     exit;
 }
 
 if (!isset($psf_settings['gzip'])) {
     echo "[PFS init.php] Error! gzip configuration in <Cache> / settings.php doesnt exists.";
+    ob_flush();
     exit;
 }
 

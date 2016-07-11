@@ -9,6 +9,7 @@
 //for security reasons, settings.php can only included once
 if (defined('PSCF_SETTINGS_INCLUDED')) {
     echo "settings already included. Abort now!";
+    @ob_flush();
     exit;
 }
 

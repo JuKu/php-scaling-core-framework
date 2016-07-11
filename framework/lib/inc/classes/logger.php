@@ -18,6 +18,8 @@ class Logger {
             throw new Exception($text);
         }
 
+        ob_flush();
+
         //exit application
         exit;
     }
