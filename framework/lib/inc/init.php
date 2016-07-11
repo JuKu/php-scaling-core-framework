@@ -72,8 +72,6 @@ require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
 //check secure php options
 Security::check();
 
-echo "cache";
-
 //initialize cache
 Cache::init();
 

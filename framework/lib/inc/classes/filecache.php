@@ -31,6 +31,10 @@ class FileCache implements ICache {
             mkdir(LIB_PSF_CACHE . $name);
         }
     }
+
+    public function init($config) {
+        // TODO: Implement init() method.
+    }
 }
 
 ?>
