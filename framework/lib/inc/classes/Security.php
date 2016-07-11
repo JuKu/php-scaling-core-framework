@@ -36,11 +36,14 @@ class Security {
 
     protected static function initCSRFToken () {
         if (!isset($_SESSION['csrf_token'])) {
-            self::$csrf_token = hash_hmac(
+            /*self::$csrf_token = hash_hmac(
                 'sha512',
                 openssl_random_pseudo_bytes(32),
                 openssl_random_pseudo_bytes(16)
-            );
+            );*/
+
+            //generate new random token with 32 bytes
+            self::$csrf_token = base64_encode( openssl_random_pseudo_bytes(32));
 
             $_SESSION['csrf_token'] = self::$csrf_token;
         } else {
