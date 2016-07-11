@@ -34,6 +34,10 @@ class Cache {
         $class_name = $config['first_lvl_cache']['class_name'];
         self::$instance = new $class_name();
 
+        if (!self::$instance instanceof ICache) {
+            throw new ConfigurationException("first level cache isnt instance of ICache.");
+        }
+
         //call cache init function
         self::$instance->init($config['first_lvl_cache']);
 
@@ -42,6 +46,10 @@ class Cache {
             //create new instance of second level cache
             $class_name = $config['second_lvl_cache']['class_name'];
             self::$second_level_cache = new $class_name();
+
+            if (!self::$second_level_cache instanceof ICache) {
+                throw new ConfigurationException("second level cache isnt instance of ICache.");
+            }
 
             //call cache init function
             self::$second_level_cache->init($config['second_lvl_cache']);
