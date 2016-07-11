@@ -11,19 +11,19 @@ define('LIB_PSF_ROOT', dirname(__FILE__) . "/");
 
 if (!defined('LIB_PSF_CACHE')) {
     //define cache path
-    define('LIB_PSF_CACHE', LIB_PSF_ROOT . "../cache/");
+    define('LIB_PSF_CACHE', LIB_PSF_ROOT . "../../cache/");
 }
 
 //set config directory
 if (!defined('LIB_PSF_CONFIG')) {
     //define cache path
-    define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "config/");
+    define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "../config/");
 }
 
 //set config directory
 if (!defined('LIB_PSF_STORE')) {
     //define cache path
-    define('LIB_PSF_STORE', LIB_PSF_ROOT . "store/");
+    define('LIB_PSF_STORE', LIB_PSF_ROOT . "../store/");
 }
 
 //start session
@@ -43,9 +43,6 @@ if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
 }
 
 require(LIB_PSF_CACHE . "settings.php");
-
-echo "test";
-exit;
 
 if (!isset($psf_settings) || !isset($psf_settings['cache'])) {
     echo "[PFS init.php] Cache section isnt configured in cache settings.php (cache directory / settings.php).";
