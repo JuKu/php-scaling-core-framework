@@ -16,6 +16,19 @@ class Host {
         require(LIB_PSF_CACHE . "settings.php");
 
         self::$psf_settings = $psf_settings;
+
+        if (!isset($psf_settings['gzip'])) {
+            echo "[PFS init.php] Error! gzip configuration in <Cache> / settings.php doesnt exists.";
+            ob_flush();
+            exit;
+        }
+
+        if ($psf_settings['gzip'] == true) {
+            //activate gzip compression
+            ob_start();
+
+            echo "<!-- gzip enabled -->";
+        }
     }
 
     public static function getUUIDPrefix () {
