@@ -42,13 +42,22 @@ if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
     exit;
 }
 
-require(LIB_PSF_CACHE . "settings.php");
+//initialize events
+Events::init();
 
-if (!isset($psf_settings) || !isset($psf_settings['cache'])) {
-    echo "[PFS init.php] Cache section isnt configured in cache settings.php (cache directory / settings.php).";
-    ob_flush();
-    exit;
-}
+//include xtpl
+require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
+
+//check secure php options
+Security::check();
+
+//initialize cache
+Cache::init();
+
+//initialize host and load lokal configuration
+Host::init();
+
+require(LIB_PSF_CACHE . "settings.php");
 
 if (!isset($psf_settings['gzip'])) {
     echo "[PFS init.php] Error! gzip configuration in <Cache> / settings.php doesnt exists.";
@@ -62,22 +71,5 @@ if ($psf_settings['gzip'] == true) {
 
     echo "<!-- gzip enabled -->";
 }
-
-//initialize events
-Events::init();
-
-//include xtpl
-require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
-
-//check secure php options
-Security::check();
-
-//initialize cache
-Cache::init();
-
-echo "host";
-
-//initialize host and load lokal configuration
-Host::init();
 
 ?>
