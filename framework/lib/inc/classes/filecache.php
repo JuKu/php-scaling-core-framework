@@ -33,7 +33,7 @@ class FileCache implements ICache {
     }
 
     public function init($config) {
-        // TODO: Implement init() method.
+        //TODO: init cache
     }
 }
 
