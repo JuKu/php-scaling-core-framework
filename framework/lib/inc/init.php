@@ -69,8 +69,6 @@ Events::init();
 //include xtpl
 require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
 
-echo "security";
-
 //check secure php options
 Security::check();
 
