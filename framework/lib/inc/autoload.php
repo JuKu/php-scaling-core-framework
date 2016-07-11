@@ -63,7 +63,6 @@ class PFS_Autoloader {
             self::$loaded_classes[] = LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php";
         } else {
             self::$error_logs[] = $class_name;
-            echo "<b>Couldnt find class " . $class_name . "</b>";
         }
 
         return $loaded;
