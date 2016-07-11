@@ -33,8 +33,8 @@ session_start();
 error_reporting(E_ALL);
 
 //include autoloader and basic framework files and classes
-require(LIB_PSF_ROOT . "lib.php");
-require(LIB_PSF_ROOT . "autoload.php");
+require(LIB_PSF_ROOT . "inc/lib.php");
+require(LIB_PSF_ROOT . "inc/autoload.php");
 
 //check php version
 if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
