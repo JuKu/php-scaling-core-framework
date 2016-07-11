@@ -33,7 +33,15 @@ class FileCache implements ICache {
     }
 
     public function init($config) {
-        //TODO: init cache
+        //check directory
+        if (!file_exists(LIB_PSF_CACHE)) {
+            mkdir(LIB_PSF_CACHE);
+        }
+
+        //check template directory
+        if (!file_exists(LIB_PSF_CACHE . "template")) {
+            mkdir(LIB_PSF_CACHE . "template");
+        }
     }
 }
 
