@@ -38,12 +38,9 @@ require(LIB_PSF_ROOT . "autoload.php");
 
 //check php version
 if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
-    echo "[PFS init.php] Error! <b>PHP version " . PHP_VERSION . " isnt supported</b>, PHP 7.0.7+ is required.<br />Current PHP version: " . PHP_VERSION + ".";
+    echo "[PFS init.php] Error! <b>PHP version " . PHP_VERSION . " isnt supported</b>, PHP 7.0.7+ is required.<br />Current PHP version: " . PHP_VERSION . ".";
     exit;
 }
-
-echo "test";
-exit;
 
 require(LIB_PSF_CACHE . "settings.php");
 
