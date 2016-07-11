@@ -34,8 +34,6 @@ class PFS_Autoloader {
         $array1 = explode("_", $class_name);
 
         if (sizeof($array1) == 1) {
-            echo LIB_PSF_ROOT;
-
             //check, if file exists
             if (file_exists(LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php")) {
                 //include class

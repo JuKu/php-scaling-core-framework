@@ -7,23 +7,23 @@
 */
 
 //define lib path
-define('LIB_PSF_ROOT', dirname(__FILE__) . "/");
+define('LIB_PSF_ROOT', dirname(__FILE__) . "/../");
 
 if (!defined('LIB_PSF_CACHE')) {
     //define cache path
-    define('LIB_PSF_CACHE', LIB_PSF_ROOT . "../../cache/");
+    define('LIB_PSF_CACHE', LIB_PSF_ROOT . "../cache/");
 }
 
 //set config directory
 if (!defined('LIB_PSF_CONFIG')) {
     //define cache path
-    define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "../config/");
+    define('LIB_PSF_CONFIG', LIB_PSF_ROOT . "config/");
 }
 
 //set config directory
 if (!defined('LIB_PSF_STORE')) {
     //define cache path
-    define('LIB_PSF_STORE', LIB_PSF_ROOT . "../store/");
+    define('LIB_PSF_STORE', LIB_PSF_ROOT . "store/");
 }
 
 //start session
