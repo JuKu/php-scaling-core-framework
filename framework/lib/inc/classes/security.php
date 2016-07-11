@@ -37,6 +37,8 @@ class Security {
         //remove server os header
         header_remove("Server");
 
+        @ini_set("expose_php", "off");
+
         //check, if csrf token exists and if not generate an new csrf token
         self::initCSRFToken();
     }
