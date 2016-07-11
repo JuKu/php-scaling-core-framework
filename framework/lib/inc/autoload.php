@@ -33,7 +33,7 @@ class PFS_Autoloader {
         //convert to array for namespaces
         $array1 = explode("_", $class_name);
 
-        echo LIB_PSF_ROOT;
+        echo LIB_PSF_ROOT . "inc/classes/" . $class_name . ".php<br />";
 
         if (sizeof($array1) == 1) {
             //check, if file exists
