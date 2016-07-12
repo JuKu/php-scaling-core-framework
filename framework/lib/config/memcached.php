@@ -27,7 +27,7 @@ $memcached_config = array(
             'port' => "11211"
         ),*/
     ),
-    //some optional memcached options
+    //some optional memcached options, for more options visit http://php.net/manual/de/memcached.constants.php
     'options' => array(
         Memcached::OPT_CONNECT_TIMEOUT => 10,
         Memcached::OPT_DISTRIBUTION => Memcached::DISTRIBUTION_CONSISTENT,
