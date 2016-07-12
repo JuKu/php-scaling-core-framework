@@ -12,6 +12,9 @@
 //Memcache Statistic Report: https://github.com/DBezemer/memcachephp
 
 //http://php.net/manual/de/memcache.examples-overview.php
+//http://php.net/manual/de/class.memcached.php
+
+//you can configure more than 1 memcache server, if you want to use redundancy
 
 $memcached_config = array(
     'server' => array(
@@ -23,6 +26,14 @@ $memcached_config = array(
             'host' => "127.0.0.1",
             'port' => "11211"
         ),*/
+    ),
+    //some optional memcached options
+    'options' => array(
+        Memcached::OPT_CONNECT_TIMEOUT => 10,
+        Memcached::OPT_DISTRIBUTION => Memcached::DISTRIBUTION_CONSISTENT,
+        Memcached::OPT_SERVER_FAILURE_LIMIT => 2,
+        Memcached::OPT_RETRY_TIMEOUT => 1,
+        Memcached::OPT_REMOVE_FAILED_SERVERS => true
     )
 );
 
