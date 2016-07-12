@@ -51,7 +51,7 @@ class AutoLoaderCache {
                 $data .= file_get_contents($class_path);
             } else if (file_exists(LIB_PSF_ROOT . $class_path)) {
                 //use LIB_PSF_ROOT prefix
-                $data .= file_get_contents($class_path);
+                $data .= file_get_contents(LIB_PSF_ROOT . $class_path);
             } else {
                 Logger::warn("class " . $class_path . " couldnt be cached.");
                 echo "<!-- class " . $class_path . " couldnt be cached. -->";
