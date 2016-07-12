@@ -34,7 +34,7 @@ Still work in progress!
 
 ## How To use
 Download / copy all this files. All files in directory "framework" are required, all other files are only optional.
-Your scripts have to include lib/init.php, an autoloader will be added automatically.
+Your scripts have to include framework/lib/init.php, an autoloader will be added automatically.
 
 ## Requirements
   - PHP 7.0.7+ (it can also still work under PHP 5.4, but i cannot guarantee for this)
