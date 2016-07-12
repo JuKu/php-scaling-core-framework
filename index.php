@@ -19,4 +19,9 @@ $time_diff = $end_time - $start_time;
 
 echo "<!-- website generated in " . $time_diff . "ms -->";
 
+//clear all cached files
+//TODO: remove this lines, they are only for tests
+Cache::getCache()->clear();
+Cache::get2ndLvlCache()->clear();
+
 ?>

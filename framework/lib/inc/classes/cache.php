@@ -59,12 +59,12 @@ class Cache {
         }
     }
 
-    public function &getCache () {
-        return $this->instance;
+    public static function &getCache () {
+        return self::$instance;
     }
 
-    public function &get2ndLvlCache () {
-        return $this->second_level_cache;
+    public static function &get2ndLvlCache () {
+        return self::$second_level_cache;
     }
 
 }
