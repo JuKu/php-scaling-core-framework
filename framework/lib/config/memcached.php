@@ -33,7 +33,10 @@ $memcached_config = array(
         Memcached::OPT_DISTRIBUTION => Memcached::DISTRIBUTION_CONSISTENT,
         Memcached::OPT_SERVER_FAILURE_LIMIT => 2,
         Memcached::OPT_RETRY_TIMEOUT => 1,
-        Memcached::OPT_REMOVE_FAILED_SERVERS => true
+        Memcached::OPT_REMOVE_FAILED_SERVERS => true,
+
+        //you can also use an prefix like in an mysql database for tables
+        Memcached::OPT_PREFIX_KEY => "psf_",
     )
 );
 
