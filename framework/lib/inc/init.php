@@ -48,6 +48,8 @@ if (!version_compare(PHP_VERSION, FPS_MIN_PHP_VERSION, '>=')) {
     exit;
 }
 
+new Database();
+
 //initialize autoloader cache
 AutoLoaderCache::init();
 
