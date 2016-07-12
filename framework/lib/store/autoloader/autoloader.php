@@ -10,7 +10,8 @@ $autoloader_classes = array(
     "inc/classes/database.php",
     "inc/classes/events.php",
     "inc/classes/security.php",
-    "inc/classes/host.php"
+    "inc/classes/host.php",
+    "inc/classes/filecache.php"
 );
 
 ?>
