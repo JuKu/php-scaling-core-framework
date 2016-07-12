@@ -45,8 +45,30 @@ class FileCache implements ICache {
     }
 
     public function clear($area = "", $key = "") {
+        if ($area == "") {
+            $this->rrmdir(LIB_PSF_CACHE, LIB_PSF_CACHE);
+        }
         // TODO: Implement clear() method.
     }
+
+    protected function rrmdir ($dir, $cache_dir) {
+        if (is_dir($dir)) {
+            $objects = scandir($dir);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (is_dir($dir."/".$object))
+                        rrmdir($dir."/".$object, $cache_dir);
+                    else
+                        unlink($dir."/".$object);
+                }
+            }
+
+            if ($dir != $cache_dir) {
+                rmdir($dir);
+            }
+        }
+    }
+
 }
 
 ?>

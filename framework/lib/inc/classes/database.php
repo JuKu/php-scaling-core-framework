@@ -16,7 +16,7 @@ class Database {
 
     protected static $db_settings = null;
 
-    public static function getInstance ($name = "") {
+    public static function getInstance ($name = "") : DBDriver {
         if ($name == "") {
             $name = "default";
         }
