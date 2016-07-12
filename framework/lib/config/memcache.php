@@ -9,7 +9,7 @@
 
 //Memcache Statistic Report: https://github.com/DBezemer/memcachephp
 
-$memcache = array(
+$memcache_config = array(
     'host' => "127.0.0.1",
     'port' => "11211",
     'authentification' => array(
