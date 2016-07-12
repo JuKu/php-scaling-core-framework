@@ -68,6 +68,10 @@ class PFS_Autoloader {
         return $loaded;
     }
 
+    public static function listLoadedClasses () {
+        return self::$loaded_classes;
+    }
+
 }
 
 //register autoloader

@@ -30,6 +30,17 @@ $time_diff = $end_time - $start_time;
 Cache::getCache()->clear();
 Cache::get2ndLvlCache()->clear();
 
+if (Host::isDebugEnabled()) {
+    //print all loaded classes
+    echo "<!-- loaded classes:\r\n\r\n";
+
+    foreach (PFS_Autoloader::listLoadedClasses() as $class_name) {
+        echo "" . $class_name . "\r\n";
+    }
+
+    echo "\r\n\r\n -->";
+}
+
 echo "<!-- website generated in " . $time_diff . "ms -->";
 
 ?>
