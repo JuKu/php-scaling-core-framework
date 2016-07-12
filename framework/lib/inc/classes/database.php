@@ -29,7 +29,7 @@ class Database {
         return self::$instances[$name];
     }
 
-    public static function createInstance ($name) {
+    public static function createInstance ($name = "default") {
         if ($name == "default") {
             //get database configuration
             require(LIB_PSF_CONFIG . "database.php");
