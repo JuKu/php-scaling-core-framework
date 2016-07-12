@@ -27,6 +27,22 @@ $memcached_config = array(
             'port' => "11211"
         ),*/
     ),
+    /**
+     * authentification is optional with memcached
+     *
+     * If you want to use authentification, your memcached PECL extension has to be build with SASL!
+     */
+    'authentification' => array(
+        /**
+         * enabled:
+         *
+         * true - authentification for memcached is enabled
+         * false - authentification will not be used for memcached
+         */
+        'enabled' => false,
+        'user' => "",
+        'password' => "",
+    ),
     //some optional memcached options, for more options visit http://php.net/manual/de/memcached.constants.php
     'options' => array(
         Memcached::OPT_CONNECT_TIMEOUT => 10,
