@@ -13,7 +13,7 @@ class Host {
     public static function init () {
         //check
         //load local settings
-        require(LIB_PSF_CACHE . "settings.php");
+        require(LIB_PSF_STORE . "settings/settings.php");
 
         self::$psf_settings = $psf_settings;
 
