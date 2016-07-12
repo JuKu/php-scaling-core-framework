@@ -45,6 +45,7 @@ class FileCache implements ICache {
     }
 
     public function clear($area = "", $key = "") {
+        echo "clear";
         // TODO: Implement clear() method.
     }
 }
