@@ -72,7 +72,7 @@ class Database {
                 }
 
                 //save instance
-                self::$instances[$name] = (DBDriver) $db_instance;
+                self::$instances[$name] = $db_instance;
 
                 //connect to database
                 self::$instances[$name]->connect($db_config_path);
