@@ -12,7 +12,7 @@ $autoloader_classes = array(
     "inc/classes/security.php",
     "inc/classes/host.php",
     "inc/classes/filecache.php",
-    "engine/xtpl/xtemplate.class.php",
+    //"engine/xtpl/xtemplate.class.php",
     "engine/xtpl/caching_xtemplate.class.php"
 );
 
