@@ -57,7 +57,7 @@ class FileCache implements ICache {
             foreach ($objects as $object) {
                 if ($object != "." && $object != "..") {
                     if (is_dir($dir."/".$object))
-                        rrmdir($dir."/".$object, $cache_dir);
+                        $this->rrmdir($dir."/".$object, $cache_dir);
                     else
                         unlink($dir."/".$object);
                 }
