@@ -24,7 +24,7 @@ class Logger {
         exit;
     }
 
-    public static function warm ($text) {
+    public static function warn ($text) {
         self::append($text);
 
         if (Host::isDebugEnabled()) {
