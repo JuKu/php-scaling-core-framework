@@ -5,7 +5,8 @@
  */
 
 $autoloader_classes = array(
-    
+    "lib/inc/classes/cache.php",
+    "lib/inc/classes/database.php"
 );
 
 ?>

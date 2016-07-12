@@ -24,6 +24,17 @@ class Logger {
         exit;
     }
 
+    public static function warm ($text) {
+        self::append($text);
+
+        if (Host::isDebugEnabled()) {
+            echo $text . "<br /><br />";
+            throw new Exception($text);
+        }
+
+        ob_flush();
+    }
+
     private static function append ($text) {
         //TODO: write log file
     }
