@@ -36,7 +36,7 @@ class AutoLoaderCache {
         }
 
         //load classes from cache to save I/O
-        require(LIB_PSF_CACHE . "autoloader/preloaded_classes.php");
+        require(LIB_PSF_CACHE . "autoloader/preloaded_classes_uncompressed.php");
     }
 
     private static function createCache () {
