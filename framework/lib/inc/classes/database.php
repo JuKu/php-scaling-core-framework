@@ -42,15 +42,15 @@ class Database {
             $db_config_path = self::$db_settings['config'];
 
             //create new database class instance from string
-            $db_instance = new $db_class_name();
+            $instance1 = new $db_class_name();
 
             //check, if instance is an database driver
-            if (!$db_instance instanceof DBDriver) {
+            if (!$instance1 instanceof DBDriver) {
                 throw new BadMethodCallException("Cannot initialize database driver " . $db_class_name . ", driver doesnt implements interface DBDriver.");
             }
 
             //save instance
-            self::$instances[$name] = $db_instance;
+            self::$instances[$name] = $instance1;
 
             //connect to database
             self::$instances[$name]->connect($db_config_path);
