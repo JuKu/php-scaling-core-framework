@@ -31,6 +31,8 @@ Cache::getCache()->clear();
 Cache::get2ndLvlCache()->clear();
 
 if (Host::isDebugEnabled()) {
+    echo "<!-- Debug Mode is enabled - dont use in production! -->\r\n\r\n";
+
     //print all loaded classes
     echo "<!-- loaded classes:\r\n\r\n";
 
