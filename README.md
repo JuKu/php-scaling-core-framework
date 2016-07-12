@@ -39,6 +39,9 @@ Your scripts have to include framework/lib/init.php, an autoloader will be added
 ## Requirements
   - PHP 7.0.7+ (it can also still work under PHP 5.4, but i cannot guarantee for this)
   - MySQL 5.7+
+  
+  optional:
+  - memcached 2.0.0+ (for faster caching and file I/O optimization)
 
 ## File permissions
   - chmod 755 /framework/cache
