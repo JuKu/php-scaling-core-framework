@@ -43,6 +43,10 @@ class FileCache implements ICache {
             mkdir(LIB_PSF_CACHE . "template");
         }
     }
+
+    public function clear($area = "", $key = "") {
+        // TODO: Implement clear() method.
+    }
 }
 
 ?>

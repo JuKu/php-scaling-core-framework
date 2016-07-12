@@ -10,6 +10,8 @@ interface ICache {
 
     public function contains ($area, $key);
 
+    public function clear ($area = "", $key = "");
+
 }
 
 ?>
