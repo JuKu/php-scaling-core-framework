@@ -11,7 +11,9 @@ $autoloader_classes = array(
     "inc/classes/events.php",
     "inc/classes/security.php",
     "inc/classes/host.php",
-    "inc/classes/filecache.php"
+    "inc/classes/filecache.php",
+    //"engine/xtpl/xtemplate.class.php",
+    "caching_xtemplate.class.php"
 );
 
 ?>
