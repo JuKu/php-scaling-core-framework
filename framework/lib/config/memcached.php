@@ -40,7 +40,7 @@ $memcached_config = array(
          * false - authentification will not be used for memcached
          */
         'enabled' => false,
-        'user' => "",
+        'username' => "",
         'password' => "",
     ),
     //some optional memcached options, for more options visit http://php.net/manual/de/memcached.constants.php
