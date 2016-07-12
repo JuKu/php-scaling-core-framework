@@ -64,7 +64,10 @@ class FileCache implements ICache {
             }
 
             if ($dir != $cache_dir) {
+                echo "remove: " . $dir . "</br />";
                 rmdir($dir);
+            } else {
+                echo "dont remove: " . $dir . "</br />";
             }
         }
     }
