@@ -20,6 +20,8 @@ class MySQLDriver implements DBDriver {
 
     protected $conn = null;
 
+    protected $prepared_cache = array();
+
     public function connect ($config_path) {
         require($config_path);
 
@@ -104,5 +106,19 @@ class MySQLDriver implements DBDriver {
 
     public function commit() {
         $this->conn->commit();
+    }
+
+    public function prepare($sql) {
+        $sql = $this->getQuery($sql);
+
+        if (isset($this->prepared_cache[md5($sql)])) {
+            return $this->prepared_cache[md5($sql)];
+        } else {
+            $stmt = $this->conn->prepare($sql);
+
+            //put prepared statement into cache
+            $this->prepared_cache[md5($sql)] = $stmt;
+            return $stmt;
+        }
     }
 }

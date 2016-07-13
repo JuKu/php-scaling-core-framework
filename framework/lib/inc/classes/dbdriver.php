@@ -38,6 +38,8 @@ interface DBDriver {
 
     public function commit ();
 
+    public function prepare ($sql);
+
     public function close ();
 
 }
