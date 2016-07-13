@@ -100,6 +100,9 @@ if (Host::isSessionEnabled()) {
         }
     }
 
+    //set session cache expire
+    session_cache_expire(Host::getSessionTTLInMinutes());
+
     Events::throwEvent("start_session");
 
     //start session
