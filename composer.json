@@ -1,0 +1,27 @@
+{
+  "name": "com.jukusoft/php-scaling-core-framework",
+  "type": "library",
+  "description": "php-scaling-core-framework",
+  "keywords": ["scale out","scaling", "cache", "caching", "database", "mysql", "hazelcast", "memcache", "memcached"],
+  "homepage": "https://github.com/JuKu/php-scaling-core-framework",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Justin Kuenzel",
+      "email": "info@jukusoft.com",
+      "homepage": "http://jukusoft.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/JuKu/php-scaling-core-framework/issues"
+  },
+  "require": {
+    "php": ">=7.0.8"
+  },
+  "autoload": {
+    "psr-0": {
+      //"Monolog": "src"
+    }
+  }
+}
