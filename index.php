@@ -43,7 +43,7 @@ if (Host::isDebugEnabled()) {
 
     //clear all cached files
     echo "<!-- clear cache -->\r\n\r\n";
-    
+
     //TODO: remove this lines, they are only for tests
     Cache::getCache()->clear();
     Cache::get2ndLvlCache()->clear();

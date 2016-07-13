@@ -59,8 +59,21 @@ class MySQLDriver implements DBDriver {
         $this->conn = null;
     }
 
-    public function execute ($sql) {
-        $this->conn->exec($this->getQuery($sql));
+    public function execute ($sql, $params = array()) {
+        //prepare mysql statement
+        $stmt = $this->prepare($sql);
+
+        //bind parameters
+        foreach ($params as $key=>$value) {
+            if (is_array($value)) {
+                $stmt->bindValue(":" . $key, $value['value'], $value['type']);
+            } else {
+                $stmt->bindValue(":" . $key, $value, PDO::PARAM_STR);
+            }
+        }
+
+        //execute query
+        $stmt->execute();
     }
 
     public function listAllDrivers () {
