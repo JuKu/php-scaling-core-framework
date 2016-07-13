@@ -93,4 +93,16 @@ class MySQLDriver implements DBDriver {
     public function countQueries() : int {
         return $this->queries;
     }
+
+    public function beginTransaction () {
+        $this->conn->beginTransaction();
+    }
+
+    public function rollback() {
+        $this->conn->rollback();
+    }
+
+    public function commit() {
+        $this->conn->commit();
+    }
 }

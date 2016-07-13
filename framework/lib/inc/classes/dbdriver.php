@@ -32,6 +32,12 @@ interface DBDriver {
 
     public function countQueries () : int;
 
+    public function beginTransaction ();
+
+    public function rollback ();
+
+    public function commit ();
+
     public function close ();
 
 }
