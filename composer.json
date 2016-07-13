@@ -1,7 +1,7 @@
 {
   "name": "com.jukusoft/php-scaling-core-framework",
   "type": "library",
-  "version" : "0.0.1-alpha",
+  "version" : "0.0.1-dev",
   "description": "php-scaling-core-framework",
   "keywords": ["scale out","scaling", "cache", "caching", "database", "mysql", "hazelcast", "memcache", "memcached"],
   "homepage": "https://github.com/JuKu/php-scaling-core-framework",
