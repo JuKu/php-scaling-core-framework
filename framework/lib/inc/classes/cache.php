@@ -19,6 +19,11 @@ class Cache {
      */
     protected static $second_level_cache = null;
 
+    /**
+     * cache instances
+     */
+    protected static $cache_instances = array();
+
     public static function init () {
         require(LIB_PSF_CONFIG . "cache.php");
         
@@ -41,6 +46,8 @@ class Cache {
         //call cache init function
         self::$instance->init($config['first_lvl_cache']);
 
+        self::$cache_instances['first_lvl_cache'] = &self::$instance;
+
         //check, if second level cache is activated
         if (isset($config['second_lvl_cache']['activated']) && $config['second_lvl_cache']['activated']) {
             //create new instance of second level cache
@@ -57,14 +64,52 @@ class Cache {
             //else use first level cache instead
             self::$second_level_cache = &self::$instance;
         }
+
+        self::$cache_instances['second_lvl_cache'] = &self::$second_level_cache;
     }
 
-    public static function &getCache () {
-        return self::$instance;
+    public static function &getCache ($name = "") {
+        if ($name == "") {
+            return self::$instance;
+        } else {
+            //check, if cache exists
+            if (self::containsCache($name)) {
+                return self::$cache_instances[$name];
+            } else {
+                throw new CacheNotFoundException("Couldnt found cache " . $name . ".");
+            }
+        }
     }
 
     public static function &get2ndLvlCache () {
         return self::$second_level_cache;
+    }
+
+    public static function containsCache ($name) {
+        return isset(self::$cache_instances[$name]);
+    }
+
+    public static function putCache ($name, $cache_instance) {
+        if ($name == null || $name == "") {
+            throw new NullPointerException("cache name cannot be null.");
+        }
+
+        //check, if instance is an cache instance
+        if ($cache_instance instanceof ICache) {
+            //put cache
+            self::$cache_instances[$name] = $cache_instance;
+        } else {
+            throw new ClassLoaderException("cannot add cache " . $name . ", because cache instance of class " . get_class($cache_instance) . " doesnt implements ICache.");
+        }
+
+        //check, if cache is also second level cache
+        if ($name == "second_lvl_cache") {
+            self::$second_level_cache = $cache_instance;
+        }
+    }
+
+    public static function removeCache ($name) {
+        unset(self::$cache_instances[$name]);
     }
 
 }
