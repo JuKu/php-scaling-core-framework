@@ -62,6 +62,15 @@ $mysql_settings = array(
          * true / false
          */
         'admin_access' => true
+    ),
+
+    'options' => array(
+        /**
+         * use connection pooling, dont create an new connection on every request, use connection caching
+         *
+         * @link http://php.net/manual/de/pdo.connections.php
+         */
+        PDO::ATTR_PERSISTENT => true
     )
 );
 

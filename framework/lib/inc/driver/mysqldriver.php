@@ -14,6 +14,7 @@ class MySQLDriver implements DBDriver {
     protected $password = "";
     protected $praefix = "";
     protected $database = "";
+    protected $options = array();
 
     protected $conn = null;
 
@@ -27,9 +28,17 @@ class MySQLDriver implements DBDriver {
         $this->password = $mysql_settings['password'];
         $this->praefix = $mysql_settings['praefix'];
         $this->database = $mysql_settings['database'];
+        $this->options = $mysql_settings['options'];
 
-        //create new database instance
-        $this->conn = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->database . "", $this->username, $this->password);
+        try {
+            //create new database instance
+            $this->conn = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->database . "", $this->username, $this->password, $this->options);
+        } catch (PDOException $e) {
+            echo "Couldnt connect to database!";
+            echo $e->getTraceAsString();
+            
+            throw $e;
+        }
     }
 
     public function update($sql) {
