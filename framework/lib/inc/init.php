@@ -38,9 +38,6 @@ if (!defined('LIB_PSF_PLUGINS')) {
     define('LIB_PSF_PLUGINS', LIB_PSF_ROOT . "plugins/");
 }
 
-//start session
-session_start();
-
 //TODO: remove this line
 error_reporting(E_ALL);
 
@@ -60,6 +57,15 @@ AutoLoaderCache::init();
 //load required classes from cache
 AutoLoaderCache::load();
 
+//initialize host and load lokal configuration
+Host::init();
+
+//check, if session is enabled
+if (Host::isSessionEnabled()) {
+    //start session
+    session_start();
+}
+
 //initialize events
 Events::init();
 
@@ -78,8 +84,5 @@ Events::throwEvent("init_security");
 Cache::init();
 
 Events::throwEvent("init_cache");
-
-//initialize host and load lokal configuration
-Host::init();
 
 ?>
