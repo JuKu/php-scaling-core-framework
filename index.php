@@ -13,6 +13,9 @@ require(ROOT_PATH . "framework/lib/inc/init.php");
 try {
     //your application code here
 
+    //list mysql tables
+    var_dump(Database::getInstance()->listTables());
+
     //...
 } catch (Exception $e) {
     echo $e->getTraceAsString();
