@@ -26,11 +26,11 @@ $psf_settings = array(
     'session' => array(
         'enabled' => true,
         /**
-         * types:
+         * handler types:
          *
          *  - default - use php internal session handler, dont override session handler
          */
-        'type' => "default"
+        'handler' => "default"
     )
 );
 

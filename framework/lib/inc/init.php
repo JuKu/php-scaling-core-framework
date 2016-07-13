@@ -60,20 +60,42 @@ AutoLoaderCache::load();
 //initialize host and load lokal configuration
 Host::init();
 
-//check, if session is enabled
-if (Host::isSessionEnabled()) {
-    //start session
-    session_start();
-}
-
 //initialize events
 Events::init();
 
 //throw init event
 Events::throwEvent("init");
 
-//include xtpl
-//require_once(LIB_PSF_ROOT . "engine/xtpl/caching_xtemplate.class.php");
+//check, if session is enabled
+if (Host::isSessionEnabled()) {
+    //check, if another session handler was choosen
+    $handler_class = Host::getSessionHandler();
+
+    Events::throwEvent("init_session");
+
+    if ($handler_class != "default" && $handler_class != "files") {
+        //create new instance of session handler
+        $handler_instance = new $handler_class();
+
+        $override_handler = true;
+
+        Events::throwEvent("override_session_handler", array(
+            'handler_class' => $handler_class,
+            'handler_instance' => &$handler_instance,
+            'override_handler' => &$override_handler
+        ));
+
+        if ($override_handler) {
+            //set session handler
+            session_set_save_handler($handler_instance, true);
+        }
+    }
+
+    Events::throwEvent("start_session");
+
+    //start session
+    session_start();
+}
 
 //check secure php options
 Security::check();

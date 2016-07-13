@@ -49,6 +49,10 @@ class Host {
         return isset(self::$psf_settings['session']) && isset(self::$psf_settings['session']['enabled']) && self::$psf_settings['session']['enabled'];
     }
 
+    public static function getSessionHandler () {
+        return self::$psf_settings['session']['handler'];
+    }
+
 }
 
 ?>
