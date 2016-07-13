@@ -74,4 +74,16 @@ class MySQLDriver implements DBDriver {
 
         return $rows;
     }
+
+    public function getRow($sql) : array {
+        return $this->query($sql)->fetch();
+    }
+
+    public function listRows($sql) : array {
+        return $this->query($sql)->fetchAll();
+    }
+
+    public function escape(string $str) : string {
+        return $this->quote($str);
+    }
 }

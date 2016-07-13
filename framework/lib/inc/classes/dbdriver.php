@@ -24,6 +24,12 @@ interface DBDriver {
 
     public function listTables () : array;
 
+    public function getRow ($sql) : array;
+
+    public function listRows ($sql) : array;
+
+    public function escape (string $str) : string;
+
     public function close ();
 
 }
