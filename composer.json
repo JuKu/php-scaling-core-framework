@@ -17,6 +17,9 @@
   "support": {
     "issues": "https://github.com/JuKu/php-scaling-core-framework/issues"
   },
+  "autoload": {
+    "files": ["framework/lib/inc/init.php"]
+  },
   "require": {
     "php": ">=7.0.8"
   }
