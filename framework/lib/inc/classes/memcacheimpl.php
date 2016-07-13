@@ -29,6 +29,9 @@ class MemcacheImpl implements ICache {
         
         $host = $memcache_config['host'];
         $port = $memcache_config['port'];
+
+        //conenct to memcache server
+        $this->connect($host, $port);
     }
 
     public function put($area, $key, $value) {
@@ -70,7 +73,7 @@ class MemcacheImpl implements ICache {
         }
     }
 
-    private function getKey ($area, $key) {
+    protected function getKey ($area, $key) {
         return md5($area) . md5($key);
     }
 

@@ -10,6 +10,11 @@
 $hazelcast_config = array(
     'host' => "127.0.0.1",
     'port' => "5701",
+    
+    /**
+     * time to live in seconds
+     */
+    'ttl' => "3600"
 );
 
 ?>

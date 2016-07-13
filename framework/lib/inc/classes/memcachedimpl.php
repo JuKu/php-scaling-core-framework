@@ -154,7 +154,7 @@ class MemcachedImpl implements ICache {
         }
     }
 
-    private function getKey ($area, $key) {
+    protected function getKey ($area, $key) {
         return md5($area) . md5($key);
     }
 

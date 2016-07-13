@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Justin
+ * Date: 13.07.2016
+ * Time: 01:53
+ */
+class HazelcastCacheImpl extends MemcacheImpl {
+    
+    protected $ttl = 0;
+
+    public function init($config) {
+        require(LIB_PSF_CONFIG . "hazelcast.php");
+
+        $host = $hazelcast_config['host'];
+        $port = $hazelcast_config['port'];
+        $this->ttl = $hazelcast_config['ttl'];
+
+        //conenct to hazelcast server
+        $this->connect($host, $port);
+    }
+
+    public function put($area, $key, $value) {
+        $this->memcache->set($this->getKey($area, $key), serialize($value), 0, $this->ttl);
+    }
+
+    public function get($area, $key) {
+        return unserialize($this->memcache->get($this->getKey($area, $key)));
+    }
+
+    public function contains($area, $key) {
+        return $this->memcache->get($this->getKey($area, $key)) != false;
+    }
+
+}
