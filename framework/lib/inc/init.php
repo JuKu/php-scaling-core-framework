@@ -86,8 +86,12 @@ if (Host::isSessionEnabled()) {
         ));
 
         if ($override_handler) {
-            //set session handler
-            session_set_save_handler($handler_instance, true);
+            if ($handler_instance instanceof SessionHandlerInterface) {
+                //set session handler
+                session_set_save_handler($handler_instance, true);
+            } else {
+                throw new ConfigurationException("session handler " . $handler_class . " doesnt implements interface SessionHandlerInterface.");
+            }
         }
     }
 
