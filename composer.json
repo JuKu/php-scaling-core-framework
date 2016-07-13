@@ -5,7 +5,7 @@
   "description": "php-scaling-core-framework, basic framework to create fast, flexible and scalable web applications with PHP 7.",
   "keywords": ["scale out","scaling", "cache", "caching", "database", "mysql", "hazelcast", "memcache", "memcached",
     "database management", "plugin system", "plugins", "plugin", "events", "hooks",
-    "multi language system", "php7", "php7.0", "session", "session management", "http caching", "mobile detection", "multi domain support", "seo"],
+    "multi language system", "php7", "php7.0", "session", "sessions", "distributed sessions", "session management", "http caching", "mobile detection", "multi domain support", "seo"],
   "homepage": "https://github.com/JuKu/php-scaling-core-framework",
   "license": "MIT",
   "authors": [
