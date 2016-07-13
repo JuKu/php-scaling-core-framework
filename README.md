@@ -9,7 +9,7 @@ Planned Features:
   - nice Api for Caching on high level, so your application dont have to know something about caching mechanism
     - File Cache (finished)
     - Memcache (finished)
-    - Hazelcast Cache (Work in progress)
+    - Hazelcast Cache (finished)
     - Other caches can be added also
   - small Database Management (Connection, Instances and Updates)
   - Distributed session management (for scaling out)
