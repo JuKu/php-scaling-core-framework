@@ -39,7 +39,7 @@ if (Host::isDebugEnabled()) {
         echo "" . $class_name . "\r\n";
     }
 
-    echo "\r\n\r\n -->";
+    echo "\r\n\r\n -->\r\n";
 
     //clear all cached files
     echo "<!-- clear cache -->\r\n\r\n";
