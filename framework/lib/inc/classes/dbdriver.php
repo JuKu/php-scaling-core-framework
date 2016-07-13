@@ -24,9 +24,9 @@ interface DBDriver {
 
     public function listTables () : array;
 
-    public function getRow ($sql) : array;
+    public function getRow ($sql, $params = array()) : array;
 
-    public function listRows ($sql) : array;
+    public function listRows ($sql, $params = array()) : array;
 
     public function escape (string $str) : string;
 
@@ -38,7 +38,7 @@ interface DBDriver {
 
     public function commit ();
 
-    public function prepare ($sql);
+    public function prepare ($sql) : PDOStatement;
 
     public function close ();
 

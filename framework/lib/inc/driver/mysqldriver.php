@@ -80,12 +80,42 @@ class MySQLDriver implements DBDriver {
         return $rows;
     }
 
-    public function getRow($sql) : array {
-        return $this->query($sql)->fetch();
+    public function getRow($sql, $params = array()) : array {
+        //get prepared statement
+        $stmt = $this->prepare($sql);
+
+        foreach ($params as $key=>$value) {
+            if (is_array($value)) {
+                $stmt->bindValue(":" . $key, $value['value'], $value['type']);
+            } else {
+                $stmt->bindValue(":" . $key, $value, PDO::PARAM_STR);
+            }
+        }
+
+        //execute query
+        $stmt->execute();
+
+        //fetch row
+        return $stmt->fetch();
     }
 
-    public function listRows($sql) : array {
-        return $this->query($sql)->fetchAll();
+    public function listRows($sql, $params = array()) : array {
+        //get prepared statement
+        $stmt = $this->prepare($sql);
+
+        foreach ($params as $key=>$value) {
+            if (is_array($value)) {
+                $stmt->bindValue(":" . $key, $value['value'], $value['type']);
+            } else {
+                $stmt->bindValue(":" . $key, $value, PDO::PARAM_STR);
+            }
+        }
+
+        //execute query
+        $stmt->execute();
+
+        //fetch rows
+        return $stmt->fetchAll();
     }
 
     public function escape(string $str) : string {
@@ -108,7 +138,7 @@ class MySQLDriver implements DBDriver {
         $this->conn->commit();
     }
 
-    public function prepare($sql) {
+    public function prepare($sql) : PDOStatement {
         $sql = $this->getQuery($sql);
 
         if (isset($this->prepared_cache[md5($sql)])) {
