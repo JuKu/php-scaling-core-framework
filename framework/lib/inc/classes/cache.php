@@ -48,6 +48,14 @@ class Cache {
 
         self::$cache_instances['first_lvl_cache'] = &self::$instance;
 
+        if (isset($config['first_lvl_cache']['names']) && is_array($config['first_lvl_cache']['names'])) {
+            $names = $config['first_lvl_cache']['names'];
+
+            foreach ($names as $name) {
+                self::$cache_instances[$name] = &self::$instance;
+            }
+        }
+
         //check, if second level cache is activated
         if (isset($config['second_lvl_cache']['activated']) && $config['second_lvl_cache']['activated']) {
             //create new instance of second level cache
@@ -60,12 +68,22 @@ class Cache {
 
             //call cache init function
             self::$second_level_cache->init($config['second_lvl_cache']);
+
+            if (isset($config['second_lvl_cache']['names']) && is_array($config['second_lvl_cache']['names'])) {
+                $names = $config['second_lvl_cache']['names'];
+
+                foreach ($names as $name) {
+                    self::$cache_instances[$name] = &self::$second_level_cache;
+                }
+            }
         } else {
             //else use first level cache instead
             self::$second_level_cache = &self::$instance;
         }
 
         self::$cache_instances['second_lvl_cache'] = &self::$second_level_cache;
+
+        //TODO: load other caches
     }
 
     public static function &getCache ($name = "") {
