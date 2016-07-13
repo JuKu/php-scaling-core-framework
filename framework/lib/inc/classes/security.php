@@ -44,6 +44,9 @@ class Security {
          *
          * see http://shiflett.org/blog/2006/mar/server-name-versus-http-host for attacks with HTTP_HOST
          *
+         * prevent such headers:
+         * Host: <script>alert('XSS')</script>
+         *
          * @link http://shiflett.org/blog/2006/mar/server-name-versus-http-host
          */
         $_SERVER['HTTP_HOST'] = htmlspecialchars($_SERVER['HTTP_HOST']);
