@@ -85,10 +85,19 @@ class MySQLDriver implements DBDriver {
     }
 
     private function getQuery ($sql) {
+        /**
+         * check, if sql query contains comments
+         *
+         * because many SQL Injections uses sql comments, we dont allow mysql comments here
+         */
+        if (strstr($sql, "--")) {
+            throw new SecurityException("SQL comments arent allowed here! Please remove sql comments from query!");
+        }
+
         return str_replace("{PRAEFIX}", $this->praefix, $sql);
     }
 
-    public function query($sql) : PDOStatement{
+    public function query($sql) : PDOStatement {
         $this->queries++;
         return $this->conn->query($this->getQuery($sql));
     }
