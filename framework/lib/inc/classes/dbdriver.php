@@ -30,6 +30,8 @@ interface DBDriver {
 
     public function escape (string $str) : string;
 
+    public function countQueries () : int;
+
     public function close ();
 
 }

@@ -16,6 +16,8 @@ class MySQLDriver implements DBDriver {
     protected $database = "";
     protected $options = array();
 
+    protected $queries = 0;
+
     protected $conn = null;
 
     public function connect ($config_path) {
@@ -66,6 +68,7 @@ class MySQLDriver implements DBDriver {
     }
 
     public function query($sql) : PDOStatement{
+        $this->queries++;
         return $this->conn->query($this->getQuery($sql));
     }
 
@@ -85,5 +88,9 @@ class MySQLDriver implements DBDriver {
 
     public function escape(string $str) : string {
         return $this->quote($str);
+    }
+
+    public function countQueries() : int {
+        return $this->queries;
     }
 }
