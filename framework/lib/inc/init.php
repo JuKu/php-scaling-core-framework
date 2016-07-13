@@ -66,6 +66,11 @@ Events::init();
 //throw init event
 Events::throwEvent("init");
 
+//initialize cache
+Cache::init();
+
+Events::throwEvent("init_cache");
+
 //check, if session is enabled
 if (Host::isSessionEnabled()) {
     //check, if another session handler was choosen
@@ -105,10 +110,5 @@ if (Host::isSessionEnabled()) {
 Security::check();
 
 Events::throwEvent("init_security");
-
-//initialize cache
-Cache::init();
-
-Events::throwEvent("init_cache");
 
 ?>

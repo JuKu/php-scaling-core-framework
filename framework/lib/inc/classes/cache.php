@@ -107,7 +107,7 @@ class Cache {
         return isset(self::$cache_instances[$name]);
     }
 
-    public static function putCache ($name, $cache_instance) {
+    public static function putCache ($name, &$cache_instance) {
         if ($name == null || $name == "") {
             throw new NullPointerException("cache name cannot be null.");
         }
@@ -115,14 +115,14 @@ class Cache {
         //check, if instance is an cache instance
         if ($cache_instance instanceof ICache) {
             //put cache
-            self::$cache_instances[$name] = $cache_instance;
+            self::$cache_instances[$name] = &$cache_instance;
         } else {
             throw new ClassLoaderException("cannot add cache " . $name . ", because cache instance of class " . get_class($cache_instance) . " doesnt implements ICache.");
         }
 
         //check, if cache is also second level cache
         if ($name == "second_lvl_cache") {
-            self::$second_level_cache = $cache_instance;
+            self::$second_level_cache = &$cache_instance;
         }
     }
 
