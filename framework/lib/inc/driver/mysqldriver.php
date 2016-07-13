@@ -96,7 +96,7 @@ class MySQLDriver implements DBDriver {
         $stmt->execute();
 
         //fetch row
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function listRows($sql, $params = array()) : array {
@@ -115,7 +115,7 @@ class MySQLDriver implements DBDriver {
         $stmt->execute();
 
         //fetch rows
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function escape(string $str) : string {
