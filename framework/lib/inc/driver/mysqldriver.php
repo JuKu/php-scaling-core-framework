@@ -18,7 +18,7 @@ class MySQLDriver implements DBDriver {
 
     protected $conn = null;
 
-    public function connect($config_path) {
+    public function connect ($config_path) {
         require($config_path);
 
         //get mysql connection data from configuration
@@ -36,16 +36,42 @@ class MySQLDriver implements DBDriver {
         } catch (PDOException $e) {
             echo "Couldnt connect to database!";
             echo $e->getTraceAsString();
-            
+
             throw $e;
         }
     }
 
-    public function update($sql) {
-        // TODO: Implement update() method.
+    public function update ($sql) {
+        $this->execute($sql);
     }
 
-    public function close() {
+    public function close () {
         $this->conn = null;
+    }
+
+    public function execute ($sql) {
+        $this->conn->exec($this->getQuery($sql));
+    }
+
+    public function listAllDrivers () {
+        return $this->conn->getAvailableDrivers();
+    }
+
+    public function quote ($str) : string {
+        return $this->conn->quote($str);
+    }
+
+    private function getQuery ($sql) {
+        return str_replace("{PRAEFIX}", $this->praefix, $sql);
+    }
+
+    public function query($sql) : PDOStatement{
+        return $this->conn->query($this->getQuery($sql));
+    }
+
+    public function listTables() : array {
+        $rows = $this->query("SHOW TABLES;")->fetchAll();
+
+        return $rows;
     }
 }

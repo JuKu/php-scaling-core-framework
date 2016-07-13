@@ -16,6 +16,14 @@ interface DBDriver {
 
     public function update ($sql);
 
+    public function execute ($sql);
+
+    public function quote ($str) : string;
+
+    public function query ($sql) : PDOStatement;
+
+    public function listTables () : array;
+
     public function close ();
 
 }
