@@ -7,7 +7,10 @@
  * Time: 01:53
  */
 class HazelcastCacheImpl extends MemcacheImpl {
-    
+
+    /**
+     * time to live in seconds
+     */
     protected $ttl = 0;
 
     public function init($config) {
