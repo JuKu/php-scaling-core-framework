@@ -13,6 +13,12 @@ require(ROOT_PATH . "framework/lib/inc/init.php");
 try {
     //your application code here
 
+    $headers = apache_request_headers();
+
+    foreach ($headers as $header => $value) {
+        echo "$header: $value <br />\n";
+    }
+
     //...
 } catch (Exception $e) {
     echo $e->getTraceAsString();
