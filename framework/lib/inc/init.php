@@ -26,10 +26,16 @@ if (!defined('LIB_PSF_STORE')) {
     define('LIB_PSF_STORE', LIB_PSF_ROOT . "store/");
 }
 
+//set packages directory
+if (!defined('LIB_PSF_PACKAGES')) {
+    //define cache path
+    define('LIB_PSF_PACKAGES', LIB_PSF_ROOT . "packages/");
+}
+
 //set plugin directory
 if (!defined('LIB_PSF_PLUGINS')) {
     //define cache path
-    define('LIB_PSF_PLUGINS', LIB_PSF_ROOT . "plugins");
+    define('LIB_PSF_PLUGINS', LIB_PSF_ROOT . "plugins/");
 }
 
 //start session
