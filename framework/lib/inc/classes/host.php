@@ -53,6 +53,14 @@ class Host {
         return self::$psf_settings['session']['handler'];
     }
 
+    public static function containsSetting ($key) {
+        return isset(self::$psf_settings[$key]);
+    }
+
+    public static function getSetting ($key) {
+        return self::$psf_settings[$key];
+    }
+
 }
 
 ?>
