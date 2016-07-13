@@ -114,4 +114,7 @@ Security::check();
 
 Events::throwEvent("init_security");
 
+//initialize database
+Database::getInstance();
+
 ?>
