@@ -1,0 +1,15 @@
+<FilesMatch "*">
+deny from all
+</FilesMatch>
+
+<Files "\.jepg$">
+allow from all
+</Files>
+
+<Files "\.jpg$">
+allow from all
+</Files>
+
+<Files "\.png$">
+allow from all
+</Files>
