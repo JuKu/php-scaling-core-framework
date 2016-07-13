@@ -15,7 +15,7 @@ $autoloader_classes = array(
     "engine/xtpl/xtemplate.class.php",
     "engine/xtpl/caching_xtemplate.class.php",
     "inc/classes/dbdriver.php",
-    "inc/classes/mysqldriver.php"
+    "inc/driver/mysqldriver.php"
 );
 
 ?>
