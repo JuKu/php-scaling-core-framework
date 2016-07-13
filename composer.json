@@ -3,7 +3,9 @@
   "type": "library",
   "version" : "0.0.1-dev",
   "description": "php-scaling-core-framework",
-  "keywords": ["scale out","scaling", "cache", "caching", "database", "mysql", "hazelcast", "memcache", "memcached"],
+  "keywords": ["scale out","scaling", "cache", "caching", "database", "mysql", "hazelcast", "memcache", "memcached",
+    "database management", "plugin system", "plugins", "plugin", "events", "hooks",
+    "multi language system", "php7", "php7.0", "session", "session management", "http caching", "mobile detection", "multi domain support", "seo"],
   "homepage": "https://github.com/JuKu/php-scaling-core-framework",
   "license": "MIT",
   "authors": [
