@@ -30,7 +30,7 @@ $mysql_settings = array(
      *
      * If you have an choice: Dont use "root" !
      */
-    'user' => "root",
+    'username' => "root",
 
     /**
      * MySQL database password
