@@ -28,13 +28,13 @@ if (!defined('LIB_PSF_STORE')) {
 
 //set packages directory
 if (!defined('LIB_PSF_PACKAGES')) {
-    //define cache path
+    //define packages path
     define('LIB_PSF_PACKAGES', LIB_PSF_ROOT . "packages/");
 }
 
 //set plugin directory
 if (!defined('LIB_PSF_PLUGINS')) {
-    //define cache path
+    //define plugins path
     define('LIB_PSF_PLUGINS', LIB_PSF_ROOT . "plugins/");
 }
 
