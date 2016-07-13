@@ -66,8 +66,12 @@ Events::throwEvent("init");
 //check secure php options
 Security::check();
 
+Events::throwEvent("init_security");
+
 //initialize cache
 Cache::init();
+
+Events::throwEvent("init_cache");
 
 //initialize host and load lokal configuration
 Host::init();
