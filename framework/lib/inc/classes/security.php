@@ -87,4 +87,12 @@ class Security {
         return self::$csrf_token == $value;
     }
 
+    public static function containsPort ($address) {
+        if (strpos($address, ":") === false) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
