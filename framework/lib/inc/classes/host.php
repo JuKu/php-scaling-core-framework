@@ -45,6 +45,10 @@ class Host {
         return "mail@example.com";
     }
 
+    public static function isSessionEnabled () {
+        return isset(self::$psf_settings['session']) && isset(self::$psf_settings['session']['enabled']) && self::$psf_settings['session']['enabled'];
+    }
+
 }
 
 ?>

@@ -22,7 +22,16 @@ $psf_settings = array(
     'gzip' => true,
 
     //if debug mode is on, every thing will be printed to website as html comment
-    'debug' => false
+    'debug' => false,
+    'session' => array(
+        'enabled' => true,
+        /**
+         * types:
+         *
+         *  - default - use php internal session handler, dont override session handler
+         */
+        'type' => "default"
+    )
 );
 
 define('PSCF_SETTINGS_INCLUDED', true);
