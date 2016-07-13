@@ -46,6 +46,9 @@ if (Host::isDebugEnabled()) {
     //TODO: remove this lines, they are only for tests
     Cache::getCache()->clear();
     Cache::get2ndLvlCache()->clear();
+
+    //print number of database queries
+    echo "<!-- " . Database::getInstance()->countQueries() . " database queries executed. -->\r\n\r\n";
 }
 
 $end_time = microtime(true);
