@@ -12,7 +12,7 @@ Planned Features:
     - Hazelcast Cache (finished)
     - Other caches can be added also
   - small Database Management (Connection, Instances and Updates)
-  - Distributed session management (for scaling out)
+  - Distributed session management (for scaling out, finished)
   - Event / Hook System
   - Mobile Detection
   - Multi Domain Support
@@ -49,6 +49,25 @@ Links:
   - https://www.digitalocean.com/community/tutorials/how-to-use-haproxy-to-set-up-http-load-balancing-on-an-ubuntu-vps
   - https://www.howtoforge.com/tutorial/ubuntu-load-balancer-haproxy/
 
+## How To store sessions in memcache(d)
+First you have to use memcache(d) as first level cache, than you need to edit framework/lib/store/settings/settings.php and edit this part of file:
+
+```
+'session' => array(
+        'enabled' => true,
+        /**
+         * handler types:
+         *
+         *  - default - use php internal session handler, dont override session handler
+         */
+        'handler' => "CacheSessionHandler",
+        'ttl' => 180 * 60,
+    )
+```
+
+You have to set "handler" to value "CacheSessionHandler".
+CacheSessionHandler will use first level cache by default to store sessions.
+
 ## Requirements
   - PHP 7.0.7+ (it can also still work under PHP 5.4, but i cannot guarantee for this)
   - MySQL 5.7+
@@ -79,5 +98,5 @@ This framework supports some types of cache handlers and you can extend other ca
   - File Cache (default, but cannot used if you want to scale out)
   - memcache
   - memcached (isnt the same as memcache! Use memcached, if its possible, because memcached is faster)
-  - Hazelcast (http://hazelcast.org) cache (Work in progress, not implemented yet)
+  - Hazelcast (http://hazelcast.org) cache
   - Redis (Work in progress, not implemented yet)
