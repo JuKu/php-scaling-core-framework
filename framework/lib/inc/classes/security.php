@@ -39,6 +39,16 @@ class Security {
 
         @ini_set("expose_php", "off");
 
+        /**
+         * dont allow some XSS attacks or SQL Injections from host or server name
+         *
+         * see http://shiflett.org/blog/2006/mar/server-name-versus-http-host for attacks with HTTP_HOST
+         *
+         * @link http://shiflett.org/blog/2006/mar/server-name-versus-http-host
+         */
+        $_SERVER['HTTP_HOST'] = htmlspecialchars($_SERVER['HTTP_HOST']);
+        $_SERVER['SERVER_NAME'] = htmlspecialchars($_SERVER['SERVER_NAME']);
+
         //check, if csrf token exists and if not generate an new csrf token
         self::initCSRFToken();
     }
