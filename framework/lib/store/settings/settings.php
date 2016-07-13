@@ -30,7 +30,8 @@ $psf_settings = array(
          *
          *  - default - use php internal session handler, dont override session handler
          */
-        'handler' => "default"
+        'handler' => "default",
+        'ttl' => 180 * 60,
     )
 );
 

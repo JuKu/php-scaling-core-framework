@@ -78,7 +78,7 @@ class MemcachedImpl implements ICache {
         $this->local_cache[md5($area)][md5($key)] = $data;
     }
 
-    public function get($area, $key) {
+    public function get($area, $key, $ttl = 0) {
         //check local cache first
         if (isset($this->local_cache[md5($area)]) && isset($this->local_cache[md5($area)][md5($key)])) {
             //get value from cache

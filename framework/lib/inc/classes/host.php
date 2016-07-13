@@ -53,6 +53,14 @@ class Host {
         return self::$psf_settings['session']['handler'];
     }
 
+    public static function getSessionTTL () {
+        return self::$psf_settings['session']['ttl'];
+    }
+
+    public static function getSessionTTLInMinutes () {
+        return (int) (self::$psf_settings['session']['ttl'] / 60);
+    }
+
     public static function containsSetting ($key) {
         return isset(self::$psf_settings[$key]);
     }

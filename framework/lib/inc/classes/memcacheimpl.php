@@ -34,7 +34,7 @@ class MemcacheImpl implements ICache {
         $this->connect($host, $port);
     }
 
-    public function put($area, $key, $value) {
+    public function put($area, $key, $value, $ttl = 0) {
         $this->memcache->set($this->getKey($area, $key), serialize($value));
     }
 

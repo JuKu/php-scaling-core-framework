@@ -6,7 +6,7 @@
 
 class FileCache implements ICache {
 
-    public function put($area, $key, $value) {
+    public function put($area, $key, $value, $ttl = 0) {
         //create directory, if neccessary
         $this->check_directory(md5($area));
 
