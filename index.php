@@ -19,6 +19,8 @@ try {
         echo "$header: $value <br />\n";
     }
 
+    print_r(apache_response_headers());
+
     //...
 } catch (Exception $e) {
     echo $e->getTraceAsString();
