@@ -22,11 +22,6 @@ try {
     Cache::get2ndLvlCache()->clear();
 }
 
-//clear all cached files
-//TODO: remove this lines, they are only for tests
-Cache::getCache()->clear();
-Cache::get2ndLvlCache()->clear();
-
 if (Host::isDebugEnabled()) {
     //print debug message
     echo "<!-- Debug Mode is enabled - dont use in production! -->\r\n\r\n";
@@ -39,6 +34,12 @@ if (Host::isDebugEnabled()) {
     }
 
     echo "\r\n\r\n -->";
+
+    echo "<!-- clear cache -->";
+    //clear all cached files
+    //TODO: remove this lines, they are only for tests
+    Cache::getCache()->clear();
+    Cache::get2ndLvlCache()->clear();
 }
 
 $end_time = microtime(true);
