@@ -9,7 +9,7 @@ RewriteEngine On
 Options +FollowSymlinks
 RewriteBase /
 #RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
-RewriteRule ^(.*)\.html$ /index.php=page$1
+RewriteRule ^(.*)\.html$ /index.php?page=$1
 
 # redirect index.php to index.html
 #RewriteCond %{REQUEST_URI} ^\/index\.php$
