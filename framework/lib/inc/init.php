@@ -117,4 +117,7 @@ Events::throwEvent("init_security");
 //initialize database
 Database::getInstance();
 
+//initialize domain
+Domain::getCurrent();
+
 ?>
