@@ -94,6 +94,7 @@ class MySQLDriver implements DBDriver {
             throw new SecurityException("SQL comments arent allowed here! Please remove sql comments from query!");
         }
 
+        $sql = str_replace("{DBPRAEFIX}", $this->praefix, $sql);
         return str_replace("{PRAEFIX}", $this->praefix, $sql);
     }
 
