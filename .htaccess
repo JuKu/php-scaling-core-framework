@@ -4,6 +4,8 @@
 # Else your server can throw an "Error 500 - Internal Server Error"
 #
 
+DirectoryIndex index.php
+
 # use URL Rewriting for better SEO optimization
 RewriteEngine On
 Options +FollowSymlinks
@@ -18,6 +20,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
 RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
 # RewriteRule ^(.*)\.html$ /index.php?page=$1 [QSA,L]
+# RewriteRule ^(.*)/$ /index.php?seite=$1 [QSA, L]
+# RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
 
 #http://www.peterkropff.de/allgemeines/htaccess/aussperren_2.htm
 
