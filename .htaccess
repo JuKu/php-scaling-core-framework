@@ -16,7 +16,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 #RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
-RewriteRule ^(.*)\.html$ /index.php?page=$1
+RewriteRule ^(.*)\.html$ /index.php?page=$1 [QSA,L]
+
+#http://www.peterkropff.de/allgemeines/htaccess/aussperren_2.htm
 
 # redirect index.php to index.html
 #RewriteCond %{REQUEST_URI} ^\/index\.php$
