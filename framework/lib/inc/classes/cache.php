@@ -86,7 +86,7 @@ class Cache {
         //TODO: load other caches
     }
 
-    public static function &getCache ($name = "") {
+    public static function &getCache ($name = "") : ICache {
         if ($name == "") {
             return self::$instance;
         } else {
@@ -99,7 +99,7 @@ class Cache {
         }
     }
 
-    public static function &get2ndLvlCache () {
+    public static function &get2ndLvlCache () : ICache {
         return self::$second_level_cache;
     }
 
