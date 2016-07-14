@@ -78,7 +78,7 @@ class Cache {
             }
         } else {
             //else use first level cache instead
-            self::$second_level_cache = &self::$instance;
+            self::$second_level_cache = self::$instance;
         }
 
         self::$cache_instances['second_lvl_cache'] = &self::$second_level_cache;
@@ -100,6 +100,10 @@ class Cache {
     }
 
     public static function &get2ndLvlCache () : ICache {
+        if (self::$second_level_cache == null) {
+            throw new Exception("second level cache is null.");
+        }
+
         return self::$second_level_cache;
     }
 
