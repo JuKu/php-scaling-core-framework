@@ -41,10 +41,10 @@ class Host {
         //check, if hostID exists
         if (!file_exists(LIB_PSF_STORE . "host/hostID.php")) {
             //generate new hostID
-            $hostID = uniqid(rand(), true);
+            $hostID = (int) uniqid(rand(), true);
 
             self::$hostID = $hostID;
-            $data = "<" . "?" . "php $ " . "uniqueHostID = " . $hostID . " ?" . ">";
+            $data = "<" . "?" . "php $ " . "uniqueHostID = " . $hostID . "; ?" . ">";
 
             //save hostID into file
             file_put_contents(LIB_PSF_STORE . "host/hostID.php", $data);
