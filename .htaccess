@@ -24,6 +24,8 @@ RewriteRule .+ - [L]
 
 #RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
 
+RewriteCond $1 !^(index\.html|index\.php|js|img|fonts|data|css|uploaded|mobile_devices|audioplayer|emails|robots\.txt|archive_blog)
+
 
 #RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
 RewriteRule ^([^/].+)\.html$ /index.php?page=$1 [L]
