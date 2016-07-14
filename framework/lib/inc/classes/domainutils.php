@@ -61,7 +61,7 @@ class DomainUtils {
      *
      * alias to getHost()
      */
-    public function getDomain () {
+    public static function getDomain () {
         return self::getHost();
     }
 
