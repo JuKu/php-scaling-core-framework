@@ -79,6 +79,8 @@ class Cache {
                 }
             }
         } else {
+            echo "use first lvl cache.";
+
             //else use first level cache instead
             self::$second_level_cache = &self::$instance;
         }
