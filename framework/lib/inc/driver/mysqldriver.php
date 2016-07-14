@@ -60,6 +60,11 @@ class MySQLDriver implements DBDriver {
     }
 
     public function execute ($sql, $params = array()) {
+        //dont allow SELECT statements
+        if (strstr($sql, "SELECT")) {
+            throw new IllegalArgumentException("method DBDriver::execute() isnt for select statements, its only for write statements, use getRow() or listRows() instead.");
+        }
+
         //prepare mysql statement
         $stmt = $this->prepare($sql);
 
@@ -73,7 +78,7 @@ class MySQLDriver implements DBDriver {
         }
 
         //execute query
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     public function listAllDrivers () {
