@@ -57,7 +57,7 @@ class Cache {
         }
 
         //check, if second level cache is activated
-        if (isset($config['second_lvl_cache']['activated']) && $config['second_lvl_cache']['activated']) {
+        if (isset($config['second_lvl_cache']['activated']) && $config['second_lvl_cache']['activated'] == true) {
             echo "create second level cache.";
 
             //create new instance of second level cache
@@ -80,7 +80,7 @@ class Cache {
             }
         } else {
             //else use first level cache instead
-            self::$second_level_cache = self::$instance;
+            self::$second_level_cache = &self::$instance;
         }
 
         self::$cache_instances['second_lvl_cache'] = &self::$second_level_cache;
