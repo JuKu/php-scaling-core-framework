@@ -10,6 +10,8 @@ class Host {
 
     protected static $psf_settings = null;
 
+    protected static $hostID = 0;
+
     public static function init () {
         //check
         //load local settings
@@ -28,6 +30,30 @@ class Host {
             ob_start();
 
             //echo "<!-- gzip enabled -->";
+        }
+
+        //check, if host directory exists
+        if (!file_exists(LIB_PSF_STORE . "host")) {
+            //create directory
+            mkdir(LIB_PSF_STORE . "host");
+        }
+
+        //check, if hostID exists
+        if (!file_exists(LIB_PSF_STORE . "host/hostID.php")) {
+            //generate new hostID
+            $hostID = uniqid(rand(), true);
+
+            self::$hostID = $hostID;
+            $data = "<" . "?" . "php $ " . "uniqueHostID = " . $hostID . " ?" . ">";
+
+            //save hostID into file
+            file_put_contents(LIB_PSF_STORE . "host/hostID.php", $data);
+        } else {
+            //include hostID php file
+            require(LIB_PSF_STORE . "host/hostID.php");
+
+            //save hostID
+            self::$hostID = $uniqueHostID;
         }
     }
 
@@ -67,6 +93,10 @@ class Host {
 
     public static function getSetting ($key) {
         return self::$psf_settings[$key];
+    }
+
+    public static function getHostID () {
+        return self::$hostID;
     }
 
 }
