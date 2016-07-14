@@ -70,7 +70,7 @@ CacheSessionHandler will use first level cache by default to store sessions.
 
 ## Requirements
   - PHP 7.0.7+ (it can also still work under PHP 5.4, but i cannot guarantee for this)
-  - MySQL 5.7+
+  - MySQL 5.7+ or PostGreSQL 9.4+
   
   optional:
   - memcached 2.0.0+ (for faster caching and file I/O optimization)
@@ -85,7 +85,9 @@ By default mysql database is supported, but you can also use some other relation
 
 This databases are supported by default:
   - MySQL 5.7+
-  - PostgreSQL (Not implemented yet)
+  - PostgreSQL 9.4+
+
+You can add support for other databases, if you write an database driver, which implements interface DBDriver.
   
 ## Caching
 There are 2 cache levels:
