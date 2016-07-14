@@ -52,7 +52,7 @@ class Domain {
             return (int) Cache::getCache()->contains("domain", "id_" . $domain);
         } else {
             //get id from database
-            $row = Database::getInstance()->getRow("SELECT * FROM `{praefix}domain` WHERE `domain` = :domain AND `activated` = '1'; ", array('domain', $domain));
+            $row = Database::getInstance()->getRow("SELECT * FROM `{praefix}domain` WHERE `domain` = :domain AND `activated` = '1'; ", array('domain' => $domain));
 
             $id = -1;
 
