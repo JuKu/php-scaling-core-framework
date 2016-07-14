@@ -13,11 +13,6 @@ require(ROOT_PATH . "framework/lib/inc/init.php");
 try {
     //your application code here
 
-    echo "Domain: " . DomainUtils::getHost() . "<br />";
-    echo DomainUtils::getURL();
-
-    var_dump($_REQUEST);
-
     /*$headers = apache_request_headers();
 
     foreach ($headers as $header => $value) {
