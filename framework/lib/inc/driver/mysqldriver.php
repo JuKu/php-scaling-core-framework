@@ -109,7 +109,7 @@ class MySQLDriver implements DBDriver {
         return $rows;
     }
 
-    public function getRow($sql, $params = array()) : array {
+    public function getRow($sql, $params = array()) {
         //get prepared statement
         $stmt = $this->prepare($sql);
 
