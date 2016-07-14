@@ -60,16 +60,14 @@ AutoLoaderCache::load();
 //initialize host and load lokal configuration
 Host::init();
 
+//initialize cache
+Cache::init();
+
 //initialize events
 Events::init();
 
 //throw init event
 Events::throwEvent("init");
-
-//initialize cache
-Cache::init();
-
-Events::throwEvent("init_cache");
 
 //check, if session is enabled
 if (Host::isSessionEnabled()) {
