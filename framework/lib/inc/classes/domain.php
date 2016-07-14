@@ -10,6 +10,7 @@ class Domain {
 
     protected static $instance = null;
 
+    protected $id = 0;
     protected $row = null;
 
     public function __construct() {
@@ -17,6 +18,8 @@ class Domain {
     }
 
     public function load ($id = null) {
+        $this->id = $id;
+
         if (Cache::get2ndLvlCache()->contains("domain", "domain_" . $id)) {
             $this->row = Cache::get2ndLvlCache()->get("domain", "domain_" . $id);
         } else {
@@ -32,6 +35,12 @@ class Domain {
             //put row into cache
             Cache::get2ndLvlCache()->put("domain", "domain_" . $id, $this->row);
         }
+
+        //throw event, so plugin can execute code here
+        Events::throwEvent("load_domain", array(
+            'id' => &$this->id,
+            'row' => &$this->row
+        ));
     }
 
     public function isAlias () {
@@ -61,6 +70,7 @@ class Domain {
     }
 
     public static function getCurrent () {
+        //check, if instance exists
         if (self::$instance == null) {
             //create new instance of domain
             self::$instance = new Domain();
@@ -71,6 +81,8 @@ class Domain {
             //load data of domain with id
             self::$instance->load($domainID);
         }
+
+        return self::$instance;
     }
 
 }
