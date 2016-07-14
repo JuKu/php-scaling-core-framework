@@ -24,7 +24,7 @@ interface DBDriver {
 
     public function listTables () : array;
 
-    public function getRow ($sql, $params = array()) : array;
+    public function getRow ($sql, $params = array());
 
     public function listRows ($sql, $params = array()) : array;
 
