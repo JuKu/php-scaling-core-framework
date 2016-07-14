@@ -4,7 +4,7 @@
 # Else your server can throw an "Error 500 - Internal Server Error"
 #
 
-DirectoryIndex index.php
+DirectoryIndex home.html
 
 # use URL Rewriting for better SEO optimization
 RewriteEngine On
