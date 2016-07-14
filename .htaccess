@@ -12,7 +12,7 @@ RewriteRule ^([^/]*)\.html$ /index.php?page=$1 [L]
 
 # redirect index.php to index.html
 #RewriteCond %{REQUEST_URI} ^\/index\.php$
-RewriteRule .* /index.html [R=301,L]
+#RewriteRule .* /index.html [R=301,L]
 #RewriteRule .* http://example.com/index.html [R=301,L]
 
 # redirect robots.txt
