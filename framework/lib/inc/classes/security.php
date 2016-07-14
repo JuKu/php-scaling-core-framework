@@ -52,6 +52,7 @@ class Security {
         $_SERVER['HTTP_HOST'] = htmlspecialchars($_SERVER['HTTP_HOST']);
         $_SERVER['SERVER_NAME'] = htmlspecialchars($_SERVER['SERVER_NAME']);
         $_SERVER['REQUEST_URI'] = htmlentities($_SERVER['REQUEST_URI']);
+        $_SERVER['PHP_SELF'] = htmlentities($_SERVER['PHP_SELF']);
 
         //check, if csrf token exists and if not generate an new csrf token
         self::initCSRFToken();
