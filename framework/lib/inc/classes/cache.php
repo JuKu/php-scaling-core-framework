@@ -39,8 +39,6 @@ class Cache {
         $class_name = $config['first_lvl_cache']['class_name'];
         self::$instance = new $class_name();
 
-        echo "first lvl cache: " . $class_name;
-
         if (!self::$instance instanceof ICache) {
             throw new ConfigurationException("first level cache isnt instance of ICache.");
         }
