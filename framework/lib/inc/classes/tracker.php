@@ -28,6 +28,11 @@ class Tracker {
     }
 
     public static function isTrackingEnabled () {
+        //check, if do not track http header is set, see http://donottrack.us/ and http://www.viomatrix.de/webserver-scripte-do-not-track-wenn-nutzer-sich-nicht-verfolgen-lassen-moechten.html
+        if (isset($_SERVER['HTTP_DNT']) && $_SERVER['HTTP_DNT'] == "1") {
+            return false;
+        }
+
         return true;
     }
 
