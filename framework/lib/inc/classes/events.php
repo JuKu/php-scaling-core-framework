@@ -13,7 +13,32 @@ class Events {
     protected static $isInitialized = false;
 
     public static function init () {
-        //
+        if (Cache::get2ndLvlCache()->contains("events", "events")) {
+            self::$events = Cache::get2ndLvlCache()->get("events", "events");
+        } else {
+            //load events from database
+            $rows = Database::getInstance()->listRows("SELECT * FROM `{PRAEFIX}events` WHERE `activated` = '1'; ");
+
+            //iterate through rows
+            foreach ($rows as $row) {
+                //get name of event
+                $name = $row['name'];
+
+                //check, if name exists in array
+                if (!isset(self::$events[$name])) {
+                    self::$events[$name] = array();
+                }
+
+                //add row to array
+                self::$events[$name][] = $row;
+            }
+
+            //put events into cache
+            Cache::get2ndLvlCache()->put("events", "events", self::$events);
+        }
+
+        //set initialized flag to true
+        self::$isInitialized = true;
     }
 
     public static function throwEvent ($name, $params = array()) {
