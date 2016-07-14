@@ -34,6 +34,10 @@ class Domain {
         }
     }
 
+    public function isAlias () {
+        return $this->row['alias'] != -1 && $this->row['alias'] != 0;
+    }
+
     public static function getIDByDomain ($domain) {
         if (Cache::getCache()->contains("domain", "id_" . $domain)) {
             return (int) Cache::getCache()->contains("domain", "id_" . $domain);
