@@ -17,6 +17,7 @@ class MySQLDriver implements DBDriver {
     protected $options = array();
 
     protected $queries = 0;
+    protected $query_history = array();
 
     protected $conn = null;
 
@@ -64,6 +65,12 @@ class MySQLDriver implements DBDriver {
         if (strstr($sql, "SELECT")) {
             throw new IllegalArgumentException("method DBDriver::execute() isnt for select statements, its only for write statements, use getRow() or listRows() instead.");
         }
+
+        //add query to history
+        $this->query_history[] = array('query' => $sql, 'params' => $params);
+
+        //increment query counter
+        $this->queries++;
 
         //prepare mysql statement
         $stmt = $this->prepare($sql);
@@ -135,7 +142,12 @@ class MySQLDriver implements DBDriver {
     }
 
     public function query($sql) : PDOStatement {
+        //add query to history
+        $this->query_history[] = array('query' => $sql, 'params' => $params);
+
+        //increment query counter
         $this->queries++;
+
         return $this->conn->query($this->getQuery($sql));
     }
 
@@ -157,6 +169,12 @@ class MySQLDriver implements DBDriver {
             }
         }
 
+        //add query to history
+        $this->query_history[] = array('query' => $sql, 'params' => $params);
+
+        //increment query counter
+        $this->queries++;
+
         //execute query
         $stmt->execute();
 
@@ -167,6 +185,12 @@ class MySQLDriver implements DBDriver {
     public function listRows($sql, $params = array()) : array {
         //get prepared statement
         $stmt = $this->prepare($sql);
+
+        //add query to history
+        $this->query_history[] = array('query' => $sql, 'params' => $params);
+
+        //increment query counter
+        $this->queries++;
 
         foreach ($params as $key=>$value) {
             if (is_array($value)) {
