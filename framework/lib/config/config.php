@@ -1,7 +1,0 @@
-<?php
-
-/**
- * General Configuration file
- */
-
-?>
