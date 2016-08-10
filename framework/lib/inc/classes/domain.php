@@ -62,8 +62,10 @@ class Domain {
             }
 
             if ($id == -1) {
+                $wildcard_domain_row = self::getWildcardDomainRow();
+
                 //check, if id belongs to wildcard domain
-                if (self::getWildcardDomainID() != $id) {
+                if ($wildcard_domain_row['domain'] != $domain) {
                     //get id of wildcard domain
                     return self::getIDByDomain(self::getWildcardDomainID());
                 } else {
@@ -78,24 +80,31 @@ class Domain {
     }
 
     public static function getWildcardDomainID () {
-        if (Cache::getCache()->contains("domain", "wildcard_domain_id")) {
-            return Cache::getCache()->get("domain", "wildcard_domain_id");
+        $row = self::getWildcardDomainRow();
+
+        if (!$row) {
+            throw new WildcardDomainNotFoundException("Couldnt found wildcard domain in database.");
+        }
+
+        return $row['id'];
+    }
+
+    public static function getWildcardDomainRow () {
+        if (Cache::getCache()->contains("domain", "wildcard_domain_row")) {
+            return Cache::getCache()->get("domain", "wildcard_domain_row");
         } else {
             //get domain id from database
-            $row = Database::getInstance()->getRow("SELECT `id` FROM `{praefix}domain` WHERE `wildcard` = 'YES' AND `activated` = '1'; ");
+            $row = Database::getInstance()->getRow("SELECT * FROM `{praefix}domain` WHERE `wildcard` = 'YES' AND `activated` = '1'; ");
 
             if (!$row) {
-                throw new DomainNotFoundException("Couldnt found wildcard domain in database.");
+                throw new WildcardDomainNotFoundException("Couldnt found wildcard domain in database.");
             }
 
-            //get id
-            $id = $row['id'];
-
             //put id into cache
-            Cache::getCache()->put("domain", "wildcard_domain_id", $id);
+            Cache::getCache()->put("domain", "wildcard_domain_row", $row);
 
             //return id
-            return $id;
+            return $row;
         }
     }
 
