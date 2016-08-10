@@ -57,11 +57,19 @@ class Domain {
             $id = -1;
 
             if ($row) {
+                //get id from database row
                 $id = $row['id'];
             }
 
             if ($id == -1) {
-                throw new DomainNotFoundException("Couldnt find domain " . htmlspecialchars($domain) . " in database.");
+                //check, if id belongs to wildcard domain
+                if (self::getWildcardDomainID() != $id) {
+                    //get id of wildcard domain
+                    return self::getIDByDomain(self::getWildcardDomainID());
+                } else {
+                    //throw exception
+                    throw new DomainNotFoundException("Couldnt find domain " . htmlspecialchars($domain) . " in database.");
+                }
             }
 
             //add id to cache
