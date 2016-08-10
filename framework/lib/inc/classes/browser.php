@@ -10,9 +10,15 @@ class Browser {
 
     /**
      * check, if browser is mobile
+     *
+     * @return true, if browser is mobile
      */
     public function isMobile () : bool {
         return preg_match("/(android|webos|avantgo|iphone|ipad|ipod|blackberry|iemobile|bolt|bo‌​ost|cricket|docomo|fone|hiptop|mini|opera mini|kitkat|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $this->getUserAgent());
+    }
+
+    public function isMobilePhone () : bool {
+        //TODO: add code here
     }
 
     public function isTablet () : bool {
