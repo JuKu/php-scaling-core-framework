@@ -24,7 +24,7 @@ class Domain {
             $this->row = Cache::get2ndLvlCache()->get("domain", "domain_" . $id);
         } else {
             //load domain from database
-            $row = Database::getInstance()->getRow("SELECT * FROM `{praefix}domain` WHERE `id` = :id; ", array('id', $id));
+            $row = Database::getInstance()->getRow("SELECT * FROM `{praefix}domain` WHERE `id` = :id; ", array('id' => $id));
 
             if (!$row) {
                 throw new DomainNotFoundException("Couldnt find domainID " . $id . " in database.");
