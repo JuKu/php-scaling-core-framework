@@ -21,7 +21,15 @@ $psf_settings = array(
     ),
     'gzip' => true,
 
-    //if debug mode is on, every thing will be printed to website as html comment
+    /**
+     * Debug Mode
+     *
+     * if debug mode is on, every thing will be printed to website as html comment
+     *
+     * possible values:
+     *  - false (Debug mode disabled)
+     *  - true (Debug mode enabled)
+     */
     'debug' => false,
     'session' => array(
         'enabled' => true,

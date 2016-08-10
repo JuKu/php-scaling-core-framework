@@ -78,7 +78,37 @@ class MySQLDriver implements DBDriver {
         }
 
         //execute query
-        return $stmt->execute();
+        try {
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            echo "An Error oncurred. Please contact administrator.<br /><br /><small>If you are the administrator: You can enable DEBUG MODE in LIB_PATH/store/settings/settings.php .</small>";
+
+            if (!defined("DEBUG_MODE") || !DEBUG_MODE) {
+                exit;
+            }
+
+            echo "<br /><br /><b>Query</b>: " . $sql . ", parameters: ";
+            var_dump($params);
+
+            echo "<br /><br /><b>PDO Statement: </b>";
+            print_r($stmt);
+
+            exit;
+        } catch (Exception $e) {
+            echo "An Error oncurred. Please contact administrator.<br /><br /><small>If you are the administrator: You can enable DEBUG MODE in LIB_PATH/store/settings/settings.php .</small>";
+
+            if (!defined("DEBUG_MODE") || !DEBUG_MODE) {
+                exit;
+            }
+
+            echo "<br /><br /><b>Query</b>: " . $sql . ", parameters: ";
+            var_dump($params);
+
+            echo "<br /><br /><b>PDO Statement: </b>";
+            print_r($stmt);
+
+            exit;
+        }
     }
 
     public function listAllDrivers () {
