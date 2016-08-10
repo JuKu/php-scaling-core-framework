@@ -31,6 +31,9 @@ try {
     Cache::get2ndLvlCache()->clear();
 }
 
+//throw event, so plugins can execute here
+Events::throwEvent("after_execution");
+
 if (Host::isDebugEnabled()) {
     //print debug message
     echo "<!-- Debug Mode is enabled - dont use in production! -->\r\n\r\n";
