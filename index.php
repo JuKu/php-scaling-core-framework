@@ -6,8 +6,10 @@
 
 $start_time = microtime(true);
 
+//define root path
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
+//require initialization script to add autoloader and so on
 require(ROOT_PATH . "framework/lib/inc/init.php");
 
 try {
