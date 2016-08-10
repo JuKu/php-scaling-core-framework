@@ -10,6 +10,9 @@
 //define root path
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
+//define lib path
+define('LIB_PSF_ROOT', dirname(__FILE__) . "/");
+
 //allow error reporting
 error_reporting(E_ALL);
 
