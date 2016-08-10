@@ -8,24 +8,27 @@
  */
 class Browser {
 
-    public function isMobile () {
+    /**
+     * check, if browser is mobile
+     */
+    public function isMobile () : bool {
+        return preg_match("/(android|webos|avantgo|iphone|ipad|ipod|blackberry|iemobile|bolt|bo‌​ost|cricket|docomo|fone|hiptop|mini|opera mini|kitkat|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $this->getUserAgent());
+    }
+
+    public function isTablet () : bool {
         //TODO: add code here
     }
 
-    public function isTablet () {
+    public function isAppleiOS () : bool {
         //TODO: add code here
     }
 
-    public function isAppleiOS () {
+    public function isAndroid () : bool {
         //TODO: add code here
     }
 
-    public function isAndroid () {
-        //TODO: add code here
-    }
-
-    public function getUserAgent () {
-        $user_agent = htmlentities($_SERVER['HTTP_USER_AGENT']);
+    public function getUserAgent () : string {
+        $user_agent = strtolower(htmlentities($_SERVER['HTTP_USER_AGENT']));
 
         //throw event, so plugins can modify user agent
         Events::throwEvent("get_user_agent", array(
