@@ -35,6 +35,9 @@ $psf_settings = array(
     )
 );
 
+//define debug mode
+define('DEBUG_MODE', $psf_settings['debug']);
+
 define('PSCF_SETTINGS_INCLUDED', true);
 
 ?>

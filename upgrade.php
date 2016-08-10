@@ -23,6 +23,9 @@ define('LIB_PSF_STORE', LIB_PSF_ROOT . "store/");
 define('LIB_PSF_PACKAGES', LIB_PSF_ROOT . "packages/");
 define('LIB_PSF_PLUGINS', LIB_PSF_ROOT . "plugins/");
 
+//include some special settings
+require(LIB_PSF_STORE . "settings/settings.php");
+
 //allow error reporting
 error_reporting(E_ALL);
 
