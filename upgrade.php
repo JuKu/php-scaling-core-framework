@@ -11,7 +11,7 @@
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
 //define lib path
-define('LIB_PSF_ROOT', dirname(__FILE__) . "/framework/");
+define('LIB_PSF_ROOT', dirname(__FILE__) . "/framework/inc/");
 
 //allow error reporting
 error_reporting(E_ALL);
