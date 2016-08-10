@@ -4,6 +4,7 @@
  * example index.php file
  */
 
+//get start time in microseconds for script execution time calculation
 $start_time = microtime(true);
 
 //define root path
@@ -54,6 +55,7 @@ if (Host::isDebugEnabled()) {
     echo "<!-- " . Database::getInstance()->countQueries() . " database queries executed. -->\r\n\r\n";
 }
 
+//get microtime to calculate execution time
 $end_time = microtime(true);
 $time_diff = $end_time - $start_time;
 

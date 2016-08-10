@@ -7,6 +7,9 @@
  * Copyright (c) 2016 Justin Kuenzel
  */
 
+//get start time in microseconds for script execution time calculation
+$start_time = microtime(true);
+
 //define root path
 define('ROOT_PATH', dirname(__FILE__) . "/");
 
@@ -29,5 +32,11 @@ require(LIB_PSF_ROOT . "inc/autoload.php");
 
 //initialize database
 Database::getInstance();
+
+//get microtime to calculate execution time
+$end_time = microtime(true);
+$time_diff = $end_time - $start_time;
+
+echo "<!-- website generated in " . $time_diff . "ms -->";
 
 ?>
