@@ -88,6 +88,13 @@ This databases are supported by default:
   - PostgreSQL 9.4+
 
 You can add support for other databases, if you write an database driver, which implements interface DBDriver.
+
+### Database Restrictions
+
+For security reasons, the following mysql functions are not allowed:
+  - LOAD_FILE - This command is often used by SQL Injections and because many mysql server runs with root permissions, it allows an hacker to read out every file on the file system. Many application doesnt need this command, so this framework doesnt allows LOAD_FILE.
+  - INTO OUTFILE - like LOAD_FILE is this command often used by SQL Injections and with root permissions, the hacker can, for example, select all database querys and save them in an public file on the webserver to download or he can write configuration files.
+  - access to database INFORMATION_SCHEMA - in virtual database INFORMATION_SCHEMA are many meta data of mysql stored, which an hacker can be use to hack the website / database faster
   
 ## Caching
 There are 2 cache levels:

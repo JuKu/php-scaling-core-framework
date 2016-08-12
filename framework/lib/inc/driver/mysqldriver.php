@@ -136,6 +136,35 @@ class MySQLDriver implements DBDriver {
             throw new SecurityException("SQL comments arent allowed here! Please remove sql comments from query!");
         }
 
+        /**
+         * check, if LOAD_FILE was used to read out an file from local file system
+         *
+         * This command if often used by SQL Injections and because many mysql server runs with root privilegs,
+         * it allows hackers to read out every file on the file system
+         */
+        if (strstr(strtoupper($sql), "LOAD_FILE")) {
+            throw new SecurityException("SQL command LOAD_FILE isnt allowed here! Please remove sql command LOAD_FILE from query!");
+        }
+
+        /**
+         * check, if INTO OUTFILE was used to write into an file of local file system
+         *
+         * This command if often used by SQL Injections and because many mysql server runs with root privilegs,
+         * it allows hackers, for example, to select all database querys and save them in an public file on the webserver to download or he can write configuration files.
+         */
+        if (strstr(strtoupper($sql), "INTO OUTFILE")) {
+            throw new SecurityException("SQL command INTO OUTFILE ist allowed here! Please remove sql command INTO OUTFILE from query!");
+        }
+
+        /**
+         * check, if virtual database INFORMATION_SCHEMA is be used
+         *
+         * in virtual database INFORMATION_SCHEMA are many meta data of mysql stored, which an hacker can be use to hack the website / database faster
+         */
+        if (strstr(strtoupper($sql), "INFORMATION_SCHEMA")) {
+            throw new SecurityException("SQL database INFORMATION_SCHEMA ist allowed here! Please remove sql database INFORMATION_SCHEMA from query!");
+        }
+
         $sql = str_replace("{DBPRAEFIX}", $this->praefix, $sql);
         $sql = str_replace("{praefix}", $this->praefix, $sql);
         return str_replace("{PRAEFIX}", $this->praefix, $sql);
@@ -143,7 +172,7 @@ class MySQLDriver implements DBDriver {
 
     public function query($sql) : PDOStatement {
         //add query to history
-        $this->query_history[] = array('query' => $sql, 'params' => $params);
+        $this->query_history[] = array('query' => $sql, 'params' => array());
 
         //increment query counter
         $this->queries++;
