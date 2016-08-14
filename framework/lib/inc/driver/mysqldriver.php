@@ -89,6 +89,7 @@ class MySQLDriver implements DBDriver {
             $res = $stmt->execute();
 
             if (!$res) {
+                //TODO: throw exception instead
                 print_r($stmt->errorInfo());
                 exit;
             }
@@ -184,7 +185,13 @@ class MySQLDriver implements DBDriver {
         //increment query counter
         $this->queries++;
 
-        return $this->conn->query($this->getQuery($sql));
+        $res = $this->conn->query($this->getQuery($sql));
+
+        if (!$res) {
+            throw new PDOException("PDOException while query(): " . ($this->getErrorInfo())[3] . "");
+        }
+
+        return $res;
     }
 
     public function listTables() : array {
@@ -212,7 +219,11 @@ class MySQLDriver implements DBDriver {
         $this->queries++;
 
         //execute query
-        $stmt->execute();
+        $res = $stmt->execute();
+
+        if (!$res) {
+            throw new PDOException("PDOException while getRow(): " . ($this->getErrorInfo())[3] . "");
+        }
 
         //fetch row
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -237,7 +248,11 @@ class MySQLDriver implements DBDriver {
         }
 
         //execute query
-        $stmt->execute();
+        $res = $stmt->execute();
+
+        if (!$res) {
+            throw new PDOException("PDOException while listRows(): " . ($this->getErrorInfo())[3] . "");
+        }
 
         //fetch rows
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
