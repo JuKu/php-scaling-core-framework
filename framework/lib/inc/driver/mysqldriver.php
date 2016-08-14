@@ -126,7 +126,7 @@ class MySQLDriver implements DBDriver {
         return $this->conn->quote($str);
     }
 
-    private function getQuery ($sql) {
+    protected function getQuery ($sql, bool $allow_information_schema = false) {
         /**
          * check, if sql query contains comments
          *
@@ -161,7 +161,7 @@ class MySQLDriver implements DBDriver {
          *
          * in virtual database INFORMATION_SCHEMA are many meta data of mysql stored, which an hacker can be use to hack the website / database faster
          */
-        if (strstr(strtoupper($sql), "INFORMATION_SCHEMA")) {
+        if (strstr(strtoupper($sql), "INFORMATION_SCHEMA") && !$allow_information_schema) {
             throw new SecurityException("SQL database INFORMATION_SCHEMA ist allowed here! Please remove sql database INFORMATION_SCHEMA from query!");
         }
 
@@ -186,9 +186,9 @@ class MySQLDriver implements DBDriver {
         return $rows;
     }
 
-    public function getRow($sql, $params = array()) {
+    public function getRow($sql, $params = array(), bool $allow_information_schema = false) {
         //get prepared statement
-        $stmt = $this->prepare($sql);
+        $stmt = $this->prepare($sql, $allow_information_schema);
 
         foreach ($params as $key=>$value) {
             if (is_array($value)) {
@@ -211,9 +211,9 @@ class MySQLDriver implements DBDriver {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function listRows($sql, $params = array()) : array {
+    public function listRows($sql, $params = array(), bool $allow_information_schema = false) : array {
         //get prepared statement
-        $stmt = $this->prepare($sql);
+        $stmt = $this->prepare($sql, $allow_information_schema);
 
         //add query to history
         $this->query_history[] = array('query' => $sql, 'params' => $params);
@@ -256,8 +256,8 @@ class MySQLDriver implements DBDriver {
         $this->conn->commit();
     }
 
-    public function prepare($sql) : PDOStatement {
-        $sql = $this->getQuery($sql);
+    public function prepare($sql, bool $allow_information_schema = false) : PDOStatement {
+        $sql = $this->getQuery($sql, $allow_information_schema);
 
         if (isset($this->prepared_cache[md5($sql)])) {
             return $this->prepared_cache[md5($sql)];
