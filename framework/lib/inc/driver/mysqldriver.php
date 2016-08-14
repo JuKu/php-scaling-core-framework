@@ -271,7 +271,7 @@ class MySQLDriver implements DBDriver {
         } else {
             $stmt = $this->conn->prepare($sql);
 
-            if (!$stmt) {
+            if (!$stmt/* && defined('DEBUG_MODE') && DEBUG_MODE*/) {
                 echo "\nPDO::errorInfo():\n";
                 print_r($this->conn->errorInfo());
 
