@@ -40,6 +40,12 @@ interface DBDriver {
 
     public function prepare ($sql, bool $allow_information_schema = false) : PDOStatement;
 
+    public function listQueryHistory () : array;
+
+    public function getDatabaseName () : string;
+
+    public function getErrorInfo () : array;
+
     public function close ();
 
 }

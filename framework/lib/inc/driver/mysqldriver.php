@@ -17,7 +17,7 @@ class MySQLDriver implements DBDriver {
     protected $options = array();
 
     protected $queries = 0;
-    protected $query_history = array();
+    protected static $query_history = array();
 
     protected $conn = null;
 
@@ -67,7 +67,7 @@ class MySQLDriver implements DBDriver {
         }
 
         //add query to history
-        $this->query_history[] = array('query' => $sql, 'params' => $params);
+        self::$query_history[] = array('query' => $sql, 'params' => $params);
 
         //increment query counter
         $this->queries++;
@@ -86,7 +86,14 @@ class MySQLDriver implements DBDriver {
 
         //execute query
         try {
-            return $stmt->execute();
+            $res = $stmt->execute();
+
+            if (!$res) {
+                print_r($stmt->errorInfo());
+                exit;
+            }
+
+            return $res;
         } catch (PDOException $e) {
             echo "An Error oncurred. Please contact administrator.<br /><br /><small>If you are the administrator: You can enable DEBUG MODE in LIB_PATH/store/settings/settings.php .</small>";
 
@@ -172,7 +179,7 @@ class MySQLDriver implements DBDriver {
 
     public function query($sql) : PDOStatement {
         //add query to history
-        $this->query_history[] = array('query' => $sql, 'params' => array());
+        self::$query_history[] = array('query' => $sql, 'params' => array());
 
         //increment query counter
         $this->queries++;
@@ -199,7 +206,7 @@ class MySQLDriver implements DBDriver {
         }
 
         //add query to history
-        $this->query_history[] = array('query' => $sql, 'params' => $params);
+        self::$query_history[] = array('query' => $sql, 'params' => $params);
 
         //increment query counter
         $this->queries++;
@@ -216,7 +223,7 @@ class MySQLDriver implements DBDriver {
         $stmt = $this->prepare($sql, $allow_information_schema);
 
         //add query to history
-        $this->query_history[] = array('query' => $sql, 'params' => $params);
+        self::$query_history[] = array('query' => $sql, 'params' => $params);
 
         //increment query counter
         $this->queries++;
@@ -264,9 +271,29 @@ class MySQLDriver implements DBDriver {
         } else {
             $stmt = $this->conn->prepare($sql);
 
+            if (!$stmt) {
+                echo "\nPDO::errorInfo():\n";
+                print_r($this->conn->errorInfo());
+
+                exit;
+            }
+
             //put prepared statement into cache
             $this->prepared_cache[md5($sql)] = $stmt;
             return $stmt;
         }
     }
+
+    public function listQueryHistory() : array {
+        return self::$query_history;
+    }
+
+    public function getDatabaseName() : string {
+        return $this->database;
+    }
+
+    public function getErrorInfo() : array {
+        return $this->conn->errorInfo();
+    }
+
 }
